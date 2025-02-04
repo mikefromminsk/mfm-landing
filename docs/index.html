@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown с меню</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            line-height: 1.5;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #2c2c2c;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .logo {
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            background-color: #444;
+            border-radius: 20px;
+            padding: 5px 10px;
+        }
+
+        .search-container input {
+            border: none;
+            background: none;
+            color: #d4d4d4;
+            outline: none;
+            padding: 5px;
+        }
+
+        .search-container img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+
+        .sidebar {
+            min-width: 250px;
+            left: 0;
+            overflow-y: auto;
+            background-color: #2c2c2c;
+            padding: 10px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar a {
+            display: block;
+            color: #d4d4d4;
+            text-decoration: none;
+            padding: 10px;
+            margin-bottom: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar a:hover, .sidebar a.active {
+            background-color: #444;
+        }
+
+        .content {
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+            margin-top: 40px;
+        }
+
+        /* Стили для скролбаров */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1e1e1e;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #444;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        #scrollToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #444;
+            color: #d4d4d4;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.3s ease;
+        }
+
+        #scrollToTop:hover {
+            background-color: #555;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
+
+    <link rel="stylesheet" href="/mfm-flex/flex.css">
+    <link rel="stylesheet" href="/mfm-flex/shorts.css">
+</head>
+<body class="fill col ">
+<div class="row header">
+    <div class="row gap16 mob-hide" style="min-width: 250px">
+        <img class="img32" src="/mfm-wallet/logo.svg">
+        <h2 class="m0">Vavilon Docs</h2>
+    </div>
+    <div id="header"></div>
+    <div class="search-container mob-hide">
+        <img src="/mfm-wallet/img/search.svg" alt="Search">
+        <input type="text" id="search" placeholder="Поиск...">
+    </div>
+</div>
+<div class="flex row">
+    <div class="col mob-hide sidebar" id="sidebar"></div>
+    <div class="col content" id="content"></div>
+</div>
+
+<script>
+    function getDocParam() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('doc') || '/mfm-landing/docs/usdt.md'; // Укажите значение по умолчанию
+    }
+
+    async function fetchMarkdown(url) {
+        const response = await fetch(url);
+        const text = await response.text();
+        return text;
+    }
+
+    function generateTOC(markdown) {
+        const headers = markdown.match(/(#{1,6})\s(.+)/g);
+        let toc = '';
+        if (headers) {
+            headers.forEach(header => {
+                const level = header.match(/#{1,6}/)[0].length;
+                const text = header.replace(/#{1,6}\s/, '').trim();
+                const anchor = text.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                toc += `<a href="#${anchor}" style="padding-left: ${(level - 1) * 10}px;" onclick="smoothScroll('${anchor}')">${text}</a>`;
+            });
+        }
+        return toc;
+    }
+
+    function generateAnchors(markdown) {
+        return markdown.replace(/(#{1,6})\s(.+)/g, (match, hashes, text) => {
+            const anchor = text.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+            return `<h${hashes.length} id="${anchor}">${text}</h${hashes.length}>`;
+        });
+    }
+
+    function smoothScroll(anchor) {
+        document.querySelector(`#${anchor}`).scrollIntoView({behavior: 'smooth'});
+        history.pushState(null, null, `#${anchor}`);
+    }
+
+    async function renderMarkdown() {
+        const markdownFile = getDocParam();
+        const markdownContent = await fetchMarkdown(markdownFile);
+        const converter = new showdown.Converter();
+        const htmlContent = converter.makeHtml(generateAnchors(markdownContent));
+
+        const firstH1Match = markdownContent.match(/^#\s(.+)/m);
+        if (firstH1Match) {
+            const firstH1 = firstH1Match[1];
+            document.getElementById('header').innerHTML += `<h1>${firstH1}</h1>`;
+        }
+
+        const contentWithoutFirstH1 = markdownContent.replace(/^#\s.+\n/, '');
+        const htmlContentWithoutFirstH1 = converter.makeHtml(generateAnchors(contentWithoutFirstH1));
+
+        document.getElementById('content').innerHTML = htmlContentWithoutFirstH1;
+        document.getElementById('sidebar').innerHTML = generateTOC(contentWithoutFirstH1);
+
+        const anchor = window.location.hash.substring(1);
+        if (anchor) {
+            document.getElementById(anchor)?.scrollIntoView({behavior: 'smooth'});
+        }
+
+        window.addEventListener('scroll', highlightCurrentSection);
+
+        document.getElementById('scrollToTop').addEventListener('click', () => {
+            document.getElementById('content').scrollTo({top: 0, behavior: 'smooth'});
+            document.getElementById('scrollToTop').style.display = 'none';
+        });
+    }
+
+    function highlightCurrentSection() {
+        const sections = document.querySelectorAll('.content h1, .content h2, .content h3, .content h4, .content h5, .content h6');
+        let currentSection = sections[0];
+
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= 10 && rect.bottom >= 10) {
+                currentSection = section;
+            }
+        });
+
+        const sidebarLinks = document.querySelectorAll('.sidebar a');
+        sidebarLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${currentSection.id}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    function searchAndScroll() {
+        const searchInput = document.getElementById('search').value.toLowerCase();
+        const content = document.getElementById('content');
+        const regex = new RegExp(searchInput, 'i');
+        const match = content.innerHTML.match(regex);
+
+        if (match) {
+            const index = content.innerHTML.indexOf(match[0]);
+            const sections = document.querySelectorAll('.content h1, .content h2, .content h3, .content h4, .content h5, .content h6');
+            let closestSection = sections[0];
+            let closestDistance = Infinity;
+
+            sections.forEach(section => {
+                const sectionIndex = content.innerHTML.indexOf(section.outerHTML);
+                const distance = Math.abs(sectionIndex - index);
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestSection = section;
+                }
+            });
+
+            closestSection.scrollIntoView({behavior: 'smooth'});
+        }
+    }
+
+    document.getElementById('search').addEventListener('input', searchAndScroll);
+    renderMarkdown();
+
+    document.getElementById('content').addEventListener('scroll', () => {
+        const scrollToTopButton = document.getElementById('scrollToTop');
+        if (document.getElementById('content').scrollTop > 100) {
+            scrollToTopButton.style.display = 'block';
+        } else {
+            scrollToTopButton.style.display = 'none';
+        }
+    });
+
+</script>
+<body class="fill col nowrap">
+<button id="scrollToTop" style="display:none;">
+    <img class="img20 img-white" src="/mfm-wallet/img/arrow-up.svg">
+</button>
+</body>
+</html>
