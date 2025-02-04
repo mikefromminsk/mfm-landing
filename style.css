@@ -1,7 +1,25 @@
 
+body {
+    line-height: 1.5;
+}
+
 h1, h2, h3, h4, h5 {
     margin: 0;
     padding: 0;
+}
+
+a {
+    color: var(--white);
+}
+
+a:link {
+    text-decoration: none;
+    color: var(--white);
+}
+
+a:visited {
+    text-decoration: none;
+    color: var(--white);
 }
 
 .text0 {
@@ -20,13 +38,6 @@ h1, h2, h3, h4, h5 {
     }
 }
 
-body {
-    line-height: 1.5;
-}
-
-h3:hover  {
-    color: var(--accent);
-}
 
 .primary-button {
     padding-top: 8px;
@@ -36,24 +47,43 @@ h3:hover  {
     margin: 0;
 }
 
-.primary-button:disabled,
-.primary-button[disabled],
-button:disabled,
-button[disabled] {
-    color: var(--gray100);
-    cursor: default;
-    background: var(--gray300);
-    pointer-events: none;
+input[type="text"] {
+    transition: border-bottom-color 0.3s ease, border-top-color 0.3s ease, border-left-color 0.3s ease, border-right-color 0.3s ease;
 }
 
-.hover-accent:hover {
+input[type="text"]:focus, input[type="text"]:hover {
+    border-top-color: var(--accent);
+    border-left-color: var(--accent);
+    border-right-color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+
+h3 {
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+h3:hover {
+    color: var(--accent);
+}
+
+.primary-button {
+    transition: background-color 0.3s ease;
+}
+
+.primary-button:hover {
     background-color: var(--accent);
 }
 
-.header{
-    position: fixed;
-    width: 100%;
+.primary-button {
+    transition: transform 0.3s ease;
 }
+
+.primary-button:hover {
+    transform: scale(1.1);
+}
+
 
 .block {
     padding-left: 2rem;
@@ -64,20 +94,22 @@ button[disabled] {
 }
 
 .scroll .block > :last-child {
-    padding-bottom: 0px;
+    padding-bottom: 0;
 }
 
 
 .hhero-background-gradient_wrapper {
     position: absolute;
-    z-index: 1  ;
+    z-index: 1;
 }
-@media screen and (max-width: 991px) {
+
+@media screen and (max-width: 1000px) {
     .hhero_bg-gradient {
         width: 102.438rem;
         max-width: none;
     }
 }
+
 .hhero_bg-gradient {
     width: 130.688rem;
     max-width: none;
@@ -101,11 +133,13 @@ button[disabled] {
         display: none !important;
     }
 }
+
 @media screen and (max-width: 991px) {
     .hide-tablet {
         display: none;
     }
 }
+
 .hhero_bg-graohic3 {
     width: 57.9375rem;
     max-width: none;
@@ -120,6 +154,7 @@ button[disabled] {
         max-width: none;
     }
 }
+
 .hhero_dot-pattern {
     width: 80rem;
     max-width: none;
@@ -137,12 +172,8 @@ button[disabled] {
 }
 
 
-
-
-
-
-
-.header{
+.header {
+    min-height: 60px;
     z-index: 2;
 }
 
@@ -193,18 +224,15 @@ button[disabled] {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-
-
-
-
-
-
-
-
-
 
 
 .burger-menu {
@@ -271,12 +299,15 @@ input[type="checkbox"]:checked ~ .menu {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-
-
-
 
 
 .background_gradient-parent {

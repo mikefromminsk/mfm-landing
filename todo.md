@@ -18,7 +18,8 @@ main
     анатитика accounts trans счетчик
     стать партнером
     footer duplicate menu https://polygon.technology/plonky3
-Docs один md file и конвертер  noders miners developers github
+Docs один md file и конвертер  noders miners developers github 
+    цветовая гамма https://build.avax.network/docs/virtual-machines
 roadmap versions https://www.tezos.com/
 Dapps
 team kontacts founders спасибо передаем иль муза аль харезме
@@ -36,6 +37,7 @@ hover-эффекты на кнопках
 аналитика графики
 particlesJS
 3d логотип в hero
+навигация возвращения с документов
 
 
 Логотип: взять исмвол из древней египта
@@ -49,7 +51,7 @@ particlesJS
 Посмотреть сайты которые дорого выглядят.
 https://www.solana.com/
 https://www.algorand.com/ основатель старик дизайн говно
-https://www.avalabs.org/ + фон движущийся, hearder blur - маршрутизация юзера
+https://www.avalabs.org/ + фон движущийся, hearder blur - маршрутизация юзера 
 https://www.near.org/ - нет картинок не понятно зачем нужна
 https://www.tezos.com/ - нет активных действий только доки
 https://www.polygon.technology/ - нет фишки но новая технология. только доки
