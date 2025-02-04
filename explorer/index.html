@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#000000">
+    <link rel="icon" href="/mfm-wallet/logo.svg">
+    <title>Vavilon Explorer</title>
+
+    <script src="/angular/angular.min.js"></script>
+    <script src="/angular-aria/angular-aria.min.js"></script>
+    <script src="/angular-animate/angular-animate.min.js"></script>
+    <script src="/angular-messages/angular-messages.min.js"></script>
+    <script src="/angular-material/angular-material.min.js"></script>
+    <link href="/angular-material/angular-material.css" rel="stylesheet">
+    <link href="/mfm-wallet/utils/angular-bugfixes.css?nocache" rel="stylesheet">
+
+    <link href="/mfm-flex/flex.css" rel="stylesheet">
+    <link href="/mfm-wallet/colors.css?nocache" rel="stylesheet">
+    <link href="/mfm-wallet/style.css?nocache" rel="stylesheet">
+    <link href="/mfm-landing/style.css?nocache" rel="stylesheet">
+    <link href="/mfm-flex/shorts.css?nocache" rel="stylesheet">
+
+    <script src="/mfm-wallet/utils/pnglib.js"></script>
+    <script src="/mfm-wallet/utils/identicon.js"></script>
+    <script src="/mfm-wallet/strings/default.js?nocache"></script>
+    <script src="/mfm-wallet/utils/front_utils.js?nocache"></script>
+    <script src="/mfm-wallet/utils/formats.js?nocache"></script>
+    <script src="/crypto-js/crypto-js.js?nocache"></script>
+    <script src="/mfm-wallet/wallet/login/bip39.js"></script>
+    <script src="/mfm-wallet/utils/back_utils.js?nocache"></script>
+
+</head>
+<body class="col " ng-app="App" ng-controller="Controller">
+<div class="row header align-center-center back-blur" style="padding: 30px 16px">
+    <div class="flex row align-start-center gap16">
+        <a class="row gap16" href="/">
+            <img class="img32" src="/mfm-wallet/logo.svg">
+            <h2>VAVILON Explorer</h2>
+        </a>
+        <div class="flex"></div>
+        <div class="nav-menu">
+            <button id="node" class="nav-menu-button back-black border-white">{{str.nodes}}</button>
+            <div id="nodes" class="nav-menu-content">
+                <a ng-repeat="item in node.nodes" href="https://{{item}}?txid={{txid}}">{{item}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col align-start-center">
+    <div class="col block gap16 nowrap">
+        <div style="height: 100px"></div>
+        <div class=" row input-wrapper">
+            <img class="img-gray300"
+                 style="left: 12px"
+                 src="/mfm-wallet/img/search.svg"/>
+            <input type="text"
+                   id="search_input"
+                   autocomplete="off"
+                   style="border-radius: 32px;"
+                   oninput="this.value = this.value.toLowerCase().replace(/[^a-z0-9_]/g, '')"
+                   ng-model="search_text"
+                   ng-change="multiSearch()"
+                   placeholder="{{str.type_token_name_or_txid}}">
+            <img class="img14 img-gray"
+                 ng-show="search_text"
+                 style="position: absolute; right: 14px; top: 18px"
+                 ng-click="clear()"
+                 src="/mfm-wallet/img/close.svg"/>
+        </div>
+        <ng-include src="'/mfm-wallet/wallet/search/search_result.html'"></ng-include>
+        <div class="col back-gray radius-default" ng-show="token">
+            <div class="row align-start-center p16 gap16 ripple"
+                 ng-click="show_token_profile = !show_token_profile">
+                <div ng-style="getLogo(token.domain)"></div>
+                <p class="text1">{{formatDomain(token.domain)}}</p>
+                <div class="flex"></div>
+                <img class="img18 img-white" src="/mfm-wallet/img/arrow-up.svg" ng-show="show_token_profile">
+                <img class="img18 img-white" src="/mfm-wallet/img/arrow-down.svg" ng-hide="show_token_profile">
+            </div>
+            <ng-include ng-show="show_token_profile" src="'/mfm-wallet/wallet/profile/analytics.html'"></ng-include>
+        </div>
+
+        <ng-include class="m0" src="'/mfm-wallet/trans/trans.html'"></ng-include>
+        <ng-include class="back-gray radius-default" src="'/mfm-wallet/trans/tran/tran.html'"></ng-include>
+        <div class="text1">{{str.node_profile}}</div>
+        <ng-include class="back-gray radius-default" src="'/mfm-wallet/products/mining/node.html?nocache'"></ng-include>
+    </div>
+</div>
+
+<script src="/mfm-wallet/products/mining/controller.js?nocache"></script>
+<script src="/mfm-wallet/trans/tran/controller.js?nocache"></script>
+<script src="/mfm-wallet/trans/controller.js?nocache"></script>
+<script src="/mfm-wallet/wallet/profile/controller.js?nocache"></script>
+<script src="/mfm-wallet/wallet/search/controller.js?nocache"></script>
+<script src="controller.js?nocache"></script>
+<script>
+    controller(start)
+</script>

@@ -21,7 +21,7 @@
     <link href="/mfm-flex/flex.css" rel="stylesheet">
     <link href="/mfm-wallet/colors.css?nocache" rel="stylesheet">
     <link href="/mfm-wallet/style.css?nocache" rel="stylesheet">
-    <link href="style.css?nocache" rel="stylesheet">
+    <link href="/mfm-landing/style.css?nocache" rel="stylesheet">
     <link href="/mfm-flex/shorts.css?nocache" rel="stylesheet">
 
     <script src="/crypto-js/crypto-js.js?nocache"></script>
@@ -35,28 +35,31 @@
     <div class="flex row align-start-center gap16">
         <img class="img32" src="/mfm-wallet/logo.svg">
         <h2>VAVILON</h2>
-        <div class="row mob-hide">
+        <div class="row mob-hide align-start-center">
             <div class="nav-menu">
-                <button class="nav-menu-button">Меню 1</button>
+                <button class="nav-menu-button">Documents</button>
                 <div class="nav-menu-content">
-                    <a href="#">Подпункт 1-1</a>
-                    <a href="#">Подпункт 1-2</a>
-                    <a href="#">Подпункт 1-3</a>
+                    <a href="/mfm-landing/docs?doc=api">Api</a>
+                    <a href="/mfm-landing/docs?doc=whitepaper">White paper</a>
+                    <a href="/mfm-landing/docs?doc=terms">Terms and conditions</a>
+                    <a href="/mfm-landing/docs?doc=roadmap">Roadmap</a>
                 </div>
             </div>
             <div class="nav-menu">
-                <button class="nav-menu-button">Меню 1</button>
+                <button class="nav-menu-button">Applications</button>
                 <div class="nav-menu-content">
-                    <a href="#">Подпункт 1-1</a>
-                    <a href="#">Подпункт 1-2</a>
-                    <a href="#">Подпункт 1-3</a>
+                    <a href="/mfm-wallet">Wallet</a>
+                    <a href="/mfm-landing/explorer">Explorer</a>
+                    <a href="/mfm-wallet/#openExchange=vavilon">Exchange</a>
+                    <a href="/mfm-wallet/#openP2P">P2P</a>
                 </div>
             </div>
+            <a href="/mfm-landing/explorer">Explorer</a>
         </div>
         <div class="flex"></div>
-        <div class="primary-button">
+        <a class="primary-button" href="/mfm-wallet">
             Начать
-        </div>
+        </a>
         <div class="col mob-show">
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="burger-menu">
@@ -65,11 +68,14 @@
                 <div></div>
             </label>
             <div class="menu">
-                <a href="#">Ссылка 1</a>
-                <a href="#">Ссылка 2</a>
-                <a href="#">Ссылка 3</a>
-                <a href="#">Ссылка 4</a>
-                <a href="#">Ссылка 5</a>
+                <a href="/mfm-landing/docs?doc=api">Api</a>
+                <a href="/mfm-landing/docs?doc=whitepaper">White paper</a>
+                <a href="/mfm-landing/docs?doc=terms">Terms and conditions</a>
+                <a href="/mfm-landing/docs?doc=roadmap">Roadmap</a>
+                <a href="/mfm-wallet">Wallet</a>
+                <a href="/mfm-landing/explorer">Explorer</a>
+                <a href="/mfm-wallet/#openExchange=vavilon">Exchange</a>
+                <a href="/mfm-wallet/#openP2P">P2P</a>
             </div>
         </div>
     </div>
@@ -236,9 +242,7 @@ async function launch(ticker, mnemonic) {
                 <div class="row user-wrapper mb16">
                     <img class="user" src="/mfm-landing/img/founder.png">
                 </div>
-                <h3>Магистр инженерно экономических наук</h3>
-                <h3>4 года опыта разработки криптобиржи Latoken</h3>
-                <h1>Майк Haiduk</h1>
+                <h1>Mike Haiduk</h1>
                 <h2>Founder</h2>
                 <div class="row align-center-center mt16">
                     <a class="primary-button"
@@ -256,8 +260,6 @@ async function launch(ticker, mnemonic) {
             </div>
         </div>
     </div>
-
-
     <div class="col block">
         <h1 class="text0 uppercase">Сообщество</h1>
         <div class="row gap32 mob-col">

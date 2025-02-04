@@ -188,10 +188,7 @@ h3:hover {
 }
 
 .nav-menu-button {
-    background: transparent;
-    border: none;
     padding: 10px 20px;
-    font-size: 18px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
