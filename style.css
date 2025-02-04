@@ -324,3 +324,17 @@ input[type="checkbox"]:checked ~ .menu {
     overflow: hidden;
     transform: rotate(12deg) scale3d(3, 1.5, 1);
 }
+
+.user-wrapper {
+    height: 120px;
+    position: relative;
+}
+
+img.user {
+    position: absolute;
+    bottom: 0;
+    left: -90px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+}

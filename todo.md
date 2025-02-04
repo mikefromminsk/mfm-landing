@@ -24,6 +24,9 @@ roadmap versions https://www.tezos.com/
 Dapps
 team kontacts founders спасибо передаем иль муза аль харезме
 exchange где купить volume usdt обеспечение
+team
+    фотку крутую
+    по цитате от каждого
 
 main дизайн
 дроп меню
@@ -38,6 +41,7 @@ hover-эффекты на кнопках
 particlesJS
 3d логотип в hero
 навигация возвращения с документов
+добавить картинок
 
 
 Логотип: взять исмвол из древней египта
