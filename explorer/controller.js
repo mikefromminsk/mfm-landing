@@ -4,7 +4,7 @@ function start($scope) {
     addTran($scope)
     addTrans($scope)
     addTokenProfile($scope)
-    addNodes($scope)
+    addVersion($scope)
 
     $scope.multiSearch = function () {
         if ($scope.search_text.length < 64) {
