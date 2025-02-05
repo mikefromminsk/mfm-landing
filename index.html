@@ -54,7 +54,11 @@
                     <a href="/mfm-wallet/#openP2P">P2P</a>
                 </div>
             </div>
-            <a href="/mfm-landing/explorer">Explorer</a>
+            <div class="nav-menu">
+                <a href="/mfm-landing/explorer">
+                    <button class="nav-menu-button">Explorer</button>
+                </a>
+            </div>
         </div>
         <div class="flex"></div>
         <a class="primary-button" href="/mfm-wallet">
@@ -216,21 +220,35 @@ async function launch(ticker, mnemonic) {
         <h1 class="text0 uppercase">Нихуя себе</h1>
         <div class="row gap32 mob-col">
             <div class="flex col align-start-center p16 half-block">
-                <h2>Наш блокчейн настолько быстр, что оставляет остальные в пыли, обеспечивая молниеносные транзакции и беспрецедентную скорость обработки данных!</h2>
+                <h2>Наш блокчейн настолько быстр, что оставляет остальные в пыли, обеспечивая молниеносные транзакции и
+                    беспрецедентную скорость обработки данных!</h2>
             </div>
             <div class="flex col align-start p16 half-block">
                 <div class="col">
-                    <p class="text0 text-gradient-1">29.7M+</p>
+                    <p class="text0 text-gradient-1" id="tran_count">29.7M+</p>
                     <p class="text1">Free transactions</p>
                 </div>
                 <div class="col">
-                    <p class="text0 text-gradient-2">340M+</p>
+                    <p class="text0 text-gradient-2" id="data_count">340M+</p>
                     <p class="text1">Contracts Payments</p>
                 </div>
                 <div class="col">
                     <p class="text0 text-gradient-3">$0.0003</p>
                     <p class="text1">Median Fee per Contract</p>
                 </div>
+
+                <script>
+                    fetch(location.origin + "/mfm-token/version", {
+                        method: "POST",
+                    }).then(response => {
+                        if (!response.ok) throw new Error('Network response was not ok');
+                        return response.json();
+                    }).then(function (response) {
+                        document.getElementById("tran_count").innerText = response.tran_count
+                        document.getElementById("data_count").innerText = response.data_history_count
+                    });
+                </script>
+
                 <div class="row">
                     <a class="primary-button mt16"
                        href="/mfm-wallet#openAnalytics">
@@ -261,37 +279,15 @@ async function launch(ticker, mnemonic) {
                 <div class="row user-wrapper mb16">
                     <img class="user" src="/mfm-landing/img/founder.png">
                 </div>
-                <h1>Ольга Токарева</h1>
+                <h1></h1>
                 <h2>Co-Founder</h2>
-            </div>
-        </div>
-    </div>
-    <div class="col block">
-        <h1 class="text0 uppercase">Сообщество</h1>
-        <div class="row gap32 mob-col">
-            <div class="flex col align-start-center p16 half-block">
-                <div class="text1"></div>
-            </div>
-            <div class="flex col align-start p16 half-block">
-                <div class="col">
-                    <p class="text0 text-gradient-1">29.7M+</p>
-                    <p class="text1">Free transactions</p>
-                </div>
-                <div class="col">
-                    <p class="text0 text-gradient-2">340M+</p>
-                    <p class="text1">Contracts Payments</p>
-                </div>
-                <div class="col">
-                    <p class="text0 text-gradient-3">$0.0003</p>
-                    <p class="text1">Median Fee per Contract</p>
-                </div>
             </div>
         </div>
     </div>
 </div>
 
 <div class="col align-start-center hover-text-accent" style="background: black">
-    <div class="col block" style="padding: 80px 0; ">
+    <div class="col block" style="padding: 80px 4em; ">
         <div class="row mob-col gap32">
             <div class="flex row gap16 wrap">
                 <img class="img32" src="/mfm-wallet/logo.svg">
