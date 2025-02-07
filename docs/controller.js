@@ -66,6 +66,8 @@ async function renderMarkdown() {
         document.getElementById('content').scrollTo({top: 0, behavior: 'smooth'});
         document.getElementById('scrollToTop').style.display = 'none';
     });
+
+    hljs.highlightAll();
 }
 
 function highlightCurrentSection() {
