@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -24,362 +23,236 @@
     <link href="/mfm-landing/style.css?nocache" rel="stylesheet">
     <link href="/mfm-flex/shorts.css?nocache" rel="stylesheet">
 
-    <script src="/crypto-js/crypto-js.js?nocache"></script>
-    <script src="/mfm-wallet/wallet/login/bip39.js"></script>
-    <script src="/mfm-wallet/utils/back_utils.js?nocache"></script>
-    <script src="/mfm-landing/min.js?nocache"></script>
-
 </head>
-<body class="col">
+<body class="col" style="overflow-x: hidden">
+<div style="display: block; position: absolute; max-width: 100%; height: 100%">
+  <div id="particles-js"></div>
+</div>
+<script>
+  particlesJS.load('particles-js', 'particles.json');
+</script>
 <div class="row header align-center-center back-blur" style="padding: 30px 16px">
-    <div class="flex row align-start-center gap16">
-        <img class="img32" src="/mfm-wallet/logo.svg">
-        <h2>VAVILON</h2>
-        <div class="row mob-hide align-start-center">
-            <div class="nav-menu">
-                <button class="nav-menu-button">Documents</button>
-                <div class="nav-menu-content">
-                    <a href="/mfm-landing/docs?doc=whitepaper">White paper</a>
-                    <a href="/mfm-landing/docs?doc=roadmap">Roadmap</a>
-                    <a href="/mfm-landing/docs?doc=dev">For Developers</a>
-                    <a href="/mfm-landing/docs?doc=terms">Terms and conditions</a>
-                </div>
-            </div>
-            <div class="nav-menu">
-                <button class="nav-menu-button">Applications</button>
-                <div class="nav-menu-content">
-                    <a href="/mfm-wallet">Wallet</a>
-                    <a href="/mfm-landing/explorer">Explorer</a>
-                    <a href="/mfm-wallet/#openExchange=vavilon">Exchange</a>
-                    <a href="/mfm-wallet/#openP2P">P2P</a>
-                </div>
-            </div>
-            <div class="nav-menu">
-                <a href="/mfm-landing/explorer">
-                    <button class="nav-menu-button">Explorer</button>
-                </a>
-            </div>
+  <div class="flex row align-start-center gap16">
+    <img class="img32" src="/mfm-wallet/logo.svg">
+    <h2>VAVILON</h2>
+    <div class="row mob-hide align-start-center">
+      <div class="nav-menu">
+        <button class="nav-menu-button">Documents</button>
+        <div class="nav-menu-content">
+          <a href="/mfm-landing/docs?doc=whitepaper">White paper</a>
+          <a href="/mfm-landing/docs?doc=roadmap">Roadmap</a>
+          <a href="/mfm-landing/docs?doc=dev">For Developers</a>
+          <a href="/mfm-landing/docs?doc=terms">Terms and conditions</a>
         </div>
-        <div class="flex"></div>
-        <a class="primary-button" href="/mfm-wallet">
-            Открыть кошелек
+      </div>
+      <div class="nav-menu">
+        <button class="nav-menu-button">Applications</button>
+        <div class="nav-menu-content">
+          <a href="/mfm-wallet">Wallet</a>
+          <a href="/mfm-landing/explorer">Explorer</a>
+        </div>
+      </div>
+      <div class="nav-menu">
+        <a href="/mfm-landing/explorer">
+          <button class="nav-menu-button">Explorer</button>
         </a>
-        <div class="col mob-show">
-            <input type="checkbox" id="menu-toggle">
-            <label for="menu-toggle" class="burger-menu">
-                <div></div>
-                <div></div>
-                <div></div>
-            </label>
-            <div class="menu">
-                <a href="/mfm-wallet">Wallet</a>
-                <a href="/mfm-landing/explorer">Explorer</a>
-                <a href="/mfm-wallet/#openExchange=vavilon">Exchange</a>
-                <a href="/mfm-wallet/#openP2P">P2P</a>
-                <a href="/mfm-landing/docs?doc=dev">For Developers</a>
-                <a href="/mfm-landing/docs?doc=whitepaper">White paper</a>
-                <a href="/mfm-landing/docs?doc=roadmap">Roadmap</a>
-                <a href="/mfm-landing/docs?doc=terms">Terms and conditions</a>
-            </div>
-        </div>
+      </div>
     </div>
+    <div class="flex"></div>
+    <div class="col mob-show">
+      <input type="checkbox" id="menu-toggle">
+      <label for="menu-toggle" class="burger-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+      </label>
+      <div class="menu">
+        <a href="/mfm-wallet">Wallet</a>
+        <a href="/mfm-landing/explorer">Explorer</a>
+        <a href="/mfm-landing/docs?doc=dev">For Developers</a>
+        <a href="/mfm-landing/docs?doc=whitepaper">White paper</a>
+        <a href="/mfm-landing/docs?doc=roadmap">Roadmap</a>
+        <a href="/mfm-landing/docs?doc=terms">Terms and conditions</a>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="col align-start-center">
-    <div class="hhero-background-gradient_wrapper" style="z-index: 0">
-        <img src="/mfm-landing/img/Gradient%20BG.svg"
-             loading="lazy" class="hhero_bg-gradient">
-        <img src="/mfm-landing/img/Frame%20427321323.svg"
-             loading="lazy" class="hhero_dot-pattern">
-        <img src="/mfm-landing/img/Illus.svg"
-             loading="lazy" class="hhero_bg-graphic2">
-        <img src="/mfm-landing/img/Group%20427320220%20(1).svg"
-             loading="lazy" class="hhero_bg-graphic1">
-    </div>
-    <div class="col block">
-        <div style="height: 160px"></div>
-        <div class="mob-hide" style="height: 140px"></div>
-        <div class="row upper">
-            <div class="col gap16">
-                <h1 class="text0 uppercase">Free Blockchain</h1>
-                <h2 style="max-width: 40rem">Web 3.0 начинается только тогда когда технологии децентрализации
-                    бесплатны.</h2>
-                <div class="row mt16 gap16">
-                    <a class="primary-button row align-start-center gap8"
-                       href="/mfm-wallet">
-                        <p>Открыть кошелек</p>
-                        <img class="img16 img-white" src="/mfm-wallet/img/arrow-right.svg">
-                    </a>
-                    <a class="primary-button back-black border-accent hover-accent"
-                       href="/mfm-landing/docs?doc=whitepaper">
-                        Whitepaper
-                    </a>
-                </div>
-            </div>
+  <div class="hhero-background-gradient_wrapper" style="z-index: 0">
+    <img src="/mfm-landing/img/Gradient%20BG.svg"
+         loading="lazy" class="hhero_bg-gradient">
+    <img src="/mfm-landing/img/Frame%20427321323.svg"
+         loading="lazy" class="hhero_dot-pattern">
+    <img src="/mfm-landing/img/Illus.svg"
+         loading="lazy" class="hhero_bg-graphic2">
+    <img src="/mfm-landing/img/Group%20427320220%20(1).svg"
+         loading="lazy" class="hhero_bg-graphic1">
+  </div>
+  <div class="col block">
+    <div style="height: 160px"></div>
+    <div class="mob-hide" style="height: 140px"></div>
+    <div class="row upper">
+      <div class="col gap16">
+        <h1 class="text0 uppercase">Free Blockchain</h1>
+        <h2 style="max-width: 40rem">All transaction are free.<br>Only miners pays commissions.</h2>
+        <div class="row mt16 gap16">
+          <a class="primary-button row align-start-center gap8"
+             href="/mfm-wallet">
+            <p>Wallet</p>
+            <img class="img16 img-white" src="/mfm-wallet/img/arrow-right.svg">
+          </a>
+          <a class="primary-button back-black border-accent hover-accent"
+             href="/mfm-landing/docs?doc=whitepaper">
+            Whitepaper
+          </a>
         </div>
+      </div>
     </div>
-    <div class="col block">
-        <!--<div class="background_gradient-parent">
-            <div class="background_gradient"></div>
-        </div>-->
-        <h1 class="text0 uppercase">Попробуй</h1>
-        <div class="row gap16 upper">
-            <div class="flex col gap16 mob-hide">
-                <h2>20 строчек кода от Web 2.0 к Web 3.0</h2>
+  </div>
 
-                <pre class="scroll-horizontal show-scrollbar"><code class="javascript">
-let hash = async (s) =>
-    Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s))))
-        .map(b => b.toString(16).padStart(2, '0')).join('');
-
-async function launch(ticker, mnemonic) {
-    let privateKey = await hash(mnemonic);
-    let address = await hash(privateKey);
-    let launchHash = await hash(await hash(ticker + address + privateKey));
-    fetch(location.origin + "/mfm-token/send", {
-        method: "POST",
-        body: JSON.stringify({
-            domain: ticker,
-            to: address,
-            next_hash: launchHash,
-            amount: 1000000,
-        }),
-    }).then(function () {
-        alert("Token launched!");
-    });
-}
-</code></pre>
-
-                <a class="primary-button back-black border-accent hover-accent"
-                   href="/mfm-landing/docs?doc=api">
-                    Читать документацию
-                </a>
-                <script>hljs.highlightAll();</script>
-            </div>
-            <div class="flex input-content">
-                <h2>Запусти токен прямо сейчас</h2>
-                <p>Ваша секретная фраза</p>
-                <div class="flex row input-wrapper">
-                    <img class="img-white"
-                         src="/mfm-wallet/img/password.svg"/>
-                    <input type="text"
-                           id="mnemonic"
-                           autocomplete="off"
-                           oninput="this.value = this.value.toLowerCase().replace(/[^a-z0-9 ]/g, '')">
-                </div>
-                <script>
-                    let mnemonic = ""
-                    for (let i = 0; i < 12; i++) {
-                        mnemonic += bip39_wordlist[Math.floor(Math.random() * bip39_wordlist.length)] + " "
-                    }
-                    document.getElementById("mnemonic").value = mnemonic
-                </script>
-                <p>Имя вашего токена</p>
-                <div class="flex row input-wrapper">
-                    <img class="img-white"
-                         src="/mfm-wallet/img/password.svg"/>
-                    <input type="text"
-                           id="ticker"
-                           autocomplete="off"
-                           oninput="this.value = this.value.toLowerCase().replace(/[^a-z0-9_]/g, '')">
-                </div>
-                <script>
-                    document.getElementById("ticker").value = "best_token" + Math.floor(Math.random() * 1000)
-                </script>
-
-                <div class="row">
-                    <button class="primary-button" id="launch"
-                            onclick="launch(document.getElementById('ticker').value, document.getElementById('mnemonic').value, function() {
-                            document.getElementById('success_icon').style.display = 'block'
-                            document.getElementById('launch').disabled = true
-                            document.getElementById('open_wallet').style.display = 'block'
-                         })">
-                        Запустить
-                    </button>
-                </div>
-
-                <div id="success_icon" class="row align-center-center" style="display: none">
-                    <div class="img100" style="position: relative">
-                        <svg class="img100 checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
-                            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-                        </svg>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <button class="primary-button" id="open_wallet" style="display: none"
-                            onclick="">
-                        Открыть в кошельке
-                    </button>
-                </div>
-
-            </div>
+  <div class="col block">
+    <h1 class="text0 uppercase">Fast as Bullet</h1>
+    <div class="row gap32 mob-col">
+      <div class="flex col align-start-center half-block">
+        <h2>Наш блокчейн настолько быстр, что оставляет остальные в пыли, обеспечивая молниеносные транзакции и
+          беспрецедентную скорость обработки данных!</h2>
+      </div>
+      <div class="flex col align-start half-block">
+        <div class="col">
+          <p class="text0 text-gradient-1" id="tran_count">29.7M+</p>
+          <p class="text1">Free transactions</p>
         </div>
-    </div>
-    <div class="col block">
-        <h1 class="text0 uppercase">Нихуя себе</h1>
-        <div class="row gap32 mob-col">
-            <div class="flex col align-start-center p16 half-block">
-                <h2>Наш блокчейн настолько быстр, что оставляет остальные в пыли, обеспечивая молниеносные транзакции и
-                    беспрецедентную скорость обработки данных!</h2>
-            </div>
-            <div class="flex col align-start p16 half-block">
-                <div class="col">
-                    <p class="text0 text-gradient-1" id="tran_count">29.7M+</p>
-                    <p class="text1">Free transactions</p>
-                </div>
-                <div class="col">
-                    <p class="text0 text-gradient-2" id="data_count">340M+</p>
-                    <p class="text1">Contracts Payments</p>
-                </div>
-                <div class="col">
-                    <p class="text0 text-gradient-3">$0.0003</p>
-                    <p class="text1">Median Fee per Contract</p>
-                </div>
-
-                <script>
-                    fetch(location.origin + "/mfm-token/version", {
-                        method: "POST",
-                    }).then(response => {
-                        if (!response.ok) throw new Error('Network response was not ok');
-                        return response.json();
-                    }).then(function (response) {
-                        document.getElementById("tran_count").innerText = response.tran_count
-                        document.getElementById("data_count").innerText = response.data_history_count
-                    });
-                </script>
-
-                <div class="row">
-                    <a class="primary-button mt16"
-                       href="/mfm-wallet#openAnalytics">
-                        Узнать больше
-                    </a>
-                </div>
-            </div>
+        <div class="col">
+          <p class="text0 text-gradient-2" id="data_count">340M+</p>
+          <p class="text1">Contracts Payments</p>
         </div>
-    </div>
-
-    <div class="col block">
-        <h1 class="text0 uppercase">Команда</h1>
-        <div class="row gap32 mob-col">
-            <div class="flex col align-start-center p16 border-white half-block">
-                <div class="row user-wrapper mb16">
-                    <img class="user" src="/mfm-landing/img/founder.png">
-                </div>
-                <h1>Mike Haiduk</h1>
-                <h2>Founder</h2>
-                <div class="row align-center-center mt16">
-                    <a class="primary-button"
-                       href="https://t.me/mikefromminsk">
-                        Связаться
-                    </a>
-                </div>
-            </div>
-            <div class="flex col align-start-center p16 border-white half-block">
-                <div class="row user-wrapper mb16">
-                    <img class="user" src="/mfm-landing/img/founder.png">
-                </div>
-                <h1></h1>
-                <h2>Co-Founder</h2>
-            </div>
+        <div class="col">
+          <p class="text0 text-gradient-3">$0.0003</p>
+          <p class="text1">Median Fee per Contract</p>
         </div>
+
+        <script>
+          fetch(location.origin + "/mfm-token/version", {
+            method: "POST",
+          }).then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.json();
+          }).then(function (response) {
+            document.getElementById("tran_count").innerText = response.tran_count
+            document.getElementById("data_count").innerText = response.data_history_count
+          });
+        </script>
+
+        <div class="row">
+          <a class="primary-button mt16"
+             href="/mfm-wallet#openAnalytics">
+            Learn more
+          </a>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <div class="col block">
+    <h1 class="text0 uppercase">Team</h1>
+    <div class="row gap32 mob-col">
+      <div class="flex col align-start-center p16 border-white half-block">
+        <div class="row user-wrapper mb16">
+          <img class="user" src="/mfm-landing/img/founder.png">
+        </div>
+        <h1>Mike Haiduk</h1>
+        <h2>Founder</h2>
+        <div class="row align-center-center mt16">
+          <a class="primary-button"
+             href="https://t.me/mikefromminsk">
+            Contact
+          </a>
+        </div>
+      </div>
+      <div class="flex col align-start-center p16 border-white half-block">
+        <div class="row user-wrapper mb16">
+          <img class="user" src="/mfm-landing/img/founder.png">
+        </div>
+        <h1></h1>
+        <h2>Co-Founder</h2>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="col align-start-center hover-text-accent" style="background: black">
-    <div class="col block" style="padding: 80px 4em; ">
-        <div class="row mob-col gap32">
-            <div class="flex row gap16 wrap">
-                <img class="img32" src="/mfm-wallet/logo.svg">
-                <h2>VAVILON</h2>
-            </div>
-            <div class="flex col gap16 wrap">
-                <h2>Languages</h2>
-                <a href="?lang=en">
-                    <h3>English</h3>
-                </a>
-                <a href="?lang=en">
-                    <h3>Русский</h3>
-                </a>
-                <a href="?lang=co">
-                    <h3>中文</h3>
-                </a>
-                <a href="?lang=cn">
-                    <h3>日本語</h3>
-                </a>
-            </div>
-            <div class="flex col gap16 wrap">
-                <h2>Documents</h2>
-                <a href="/mfm-landing/docs?doc=api">
-                    <h3>Api</h3>
-                </a>
-                <a href="/mfm-landing/docs?doc=whitepaper">
-                    <h3>White paper</h3>
-                </a>
-                <a href="/mfm-landing/docs?doc=terms">
-                    <h3>Terms and conditions</h3>
-                </a>
-                <a href="/mfm-landing/docs?doc=roadmap">
-                    <h3>Roadmap</h3>
-                </a>
-            </div>
-            <div class="flex col gap16 wrap">
-                <h2>Applications</h2>
-                <a href="/mfm-wallet">
-                    <h3>Wallet</h3>
-                </a>
-                <a href="/mfm-landing/explorer">
-                    <h3>Explorer</h3>
-                </a>
-                <a href="/mfm-wallet/#openExchange=vavilon">
-                    <h3>Exchange</h3>
-                </a>
-                <a href="/mfm-wallet/#openP2P">
-                    <h3>P2P</h3>
-                </a>
-            </div>
-        </div>
-        <div class="row social gap8 mt16">
-            <a class="back-white img-black radius-default img32 p8 hover-accent"
-               href="https://t.me/vavilon_network" target="_blank">
-                <img class="img16" src="/mfm-landing/img/telegram.svg">
-            </a>
-            <a class="back-white img-black radius-default img32 p8 hover-accent"
-               href="https://twitter.com/vavilon_network" target="_blank">
-                <img class="img16" src="/mfm-landing/img/twitter.svg">
-            </a>
-            <a class="back-white img-black radius-default img32 p8 hover-accent"
-               href="https://twitter.com/vavilon_network" target="_blank">
-                <img class="img16" src="/mfm-landing/img/instagram.svg">
-            </a>
-            <a class="back-white img-black radius-default img32 p8 hover-accent"
-               href="https://twitter.com/vavilon_network" target="_blank">
-                <img class="img16" src="/mfm-landing/img/facebook.svg">
-            </a>
-            <a class="back-white img-black radius-default img32 p8 hover-accent"
-               href="https://twitter.com/vavilon_network" target="_blank">
-                <img class="img16" src="/mfm-landing/img/reddit.svg">
-            </a>
-        </div>
+  <div class="col block" style="padding: 80px 2em; ">
+    <div class="row mob-col gap32">
+      <div class="flex col gap16 wrap">
+        <h2>Languages</h2>
+        <a href="?lang=en">
+          <h3>English</h3>
+        </a>
+        <a href="?lang=en">
+          <h3>Русский</h3>
+        </a>
+        <a href="?lang=co">
+          <h3>中文</h3>
+        </a>
+        <a href="?lang=cn">
+          <h3>日本語</h3>
+        </a>
+      </div>
+      <div class="flex col gap16 wrap">
+        <h2>Documents</h2>
+        <a href="/mfm-landing/docs?doc=api">
+          <h3>Api</h3>
+        </a>
+        <a href="/mfm-landing/docs?doc=whitepaper">
+          <h3>White paper</h3>
+        </a>
+        <a href="/mfm-landing/docs?doc=terms">
+          <h3>Terms and conditions</h3>
+        </a>
+        <a href="/mfm-landing/docs?doc=roadmap">
+          <h3>Roadmap</h3>
+        </a>
+      </div>
+      <div class="flex col gap16 wrap">
+        <h2>Applications</h2>
+        <a href="/mfm-wallet">
+          <h3>Wallet</h3>
+        </a>
+        <a href="/mfm-landing/explorer">
+          <h3>Explorer</h3>
+        </a>
+        <a href="/mfm-wallet/#openExchange=vavilon">
+          <h3>Exchange</h3>
+        </a>
+        <a href="/mfm-wallet/#openP2P">
+          <h3>P2P</h3>
+        </a>
+      </div>
     </div>
+    <div class="row social gap8" style="margin-top: 50px;">
+      <a class="back-white img-black radius-default img32 p8 hover-accent"
+         href="https://t.me/vavilon_network" target="_blank">
+        <img class="img16" src="/mfm-landing/img/telegram.svg">
+      </a>
+      <a class="back-white img-black radius-default img32 p8 hover-accent"
+         href="https://twitter.com/vavilon_network" target="_blank">
+        <img class="img16" src="/mfm-landing/img/twitter.svg">
+      </a>
+      <a class="back-white img-black radius-default img32 p8 hover-accent"
+         href="https://twitter.com/vavilon_network" target="_blank">
+        <img class="img16" src="/mfm-landing/img/instagram.svg">
+      </a>
+      <a class="back-white img-black radius-default img32 p8 hover-accent"
+         href="https://twitter.com/vavilon_network" target="_blank">
+        <img class="img16" src="/mfm-landing/img/facebook.svg">
+      </a>
+      <a class="back-white img-black radius-default img32 p8 hover-accent"
+         href="https://twitter.com/vavilon_network" target="_blank">
+        <img class="img16" src="/mfm-landing/img/reddit.svg">
+      </a>
+    </div>
+  </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</body>
+</html>

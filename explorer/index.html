@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#000000">
     <link rel="icon" href="/mfm-wallet/logo.svg">
-    <title>Vavilon Explorer</title>
+    <title>Explorer</title>
 
     <script src="/angular/angular.min.js"></script>
     <script src="/angular-aria/angular-aria.min.js"></script>
@@ -36,15 +36,9 @@
     <div class="flex row align-start-center gap16">
         <a class="row gap16" href="/">
             <img class="img32" src="/mfm-wallet/logo.svg">
-            <h2>VAVILON Explorer</h2>
+            <h2>Explorer</h2>
         </a>
         <div class="flex"></div>
-        <div class="nav-menu">
-            <button id="node" class="nav-menu-button back-black border-white">{{str.nodes}}</button>
-            <div id="nodes" class="nav-menu-content">
-                <a ng-repeat="item in node.nodes" href="https://{{item}}?txid={{txid}}">{{item}}</a>
-            </div>
-        </div>
     </div>
 </div>
 <div class="col align-start-center">

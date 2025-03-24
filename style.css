@@ -277,6 +277,7 @@ input[type="checkbox"]:checked ~ .burger-menu div:nth-child(3) {
     align-items: end;
     position: absolute;
     top: 80px;
+    height: 1600px;
     left: 0;
     right: 0;
     background-color: var(--black);
@@ -287,6 +288,8 @@ input[type="checkbox"]:checked ~ .burger-menu div:nth-child(3) {
 
 .menu a {
     text-decoration: none;
+    width: 100%;
+    text-align: end;
     font-size: 18px;
     padding: 16px 2em;
     transition: background-color 0.2s ease;
