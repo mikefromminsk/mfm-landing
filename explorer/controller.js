@@ -1,6 +1,5 @@
 function start($scope) {
     addFormats($scope)
-    addSearch($scope)
     addTran($scope)
     addTrans($scope)
     addTokenProfile($scope)

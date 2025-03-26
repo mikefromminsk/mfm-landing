@@ -26,232 +26,310 @@
 </head>
 <body class="col" style="overflow-x: hidden">
 <div style="display: block; position: absolute; max-width: 100%; height: 100%">
-  <div id="particles-js"></div>
+    <div id="particles-js"></div>
 </div>
 <script>
-  particlesJS.load('particles-js', 'particles.json');
+    particlesJS.load('particles-js', 'particles.json');
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('.header');
+        if (window.scrollY > 100) {
+            header.classList.add('back-blur');
+        } else {
+            header.classList.remove('back-blur');
+        }
+    });
 </script>
-<div class="row header align-center-center back-blur" style="padding: 30px 16px">
-  <div class="flex row align-start-center gap16">
-    <img class="img32" src="/mfm-wallet/logo.svg">
-    <h2>VAVILON</h2>
-    <div class="row mob-hide align-start-center">
-      <div class="nav-menu">
-        <button class="nav-menu-button">Documents</button>
-        <div class="nav-menu-content">
-          <a href="/mfm-landing/docs?doc=whitepaper">White paper</a>
-          <a href="/mfm-landing/docs?doc=roadmap">Roadmap</a>
-          <a href="/mfm-landing/docs?doc=dev">For Developers</a>
-          <a href="/mfm-landing/docs?doc=terms">Terms and conditions</a>
+<div class="row header align-center-center" style="padding: 30px 16px;  position: fixed;  width: 100%;">
+    <div class="flex row align-start-center gap16">
+        <img class="img32" src="/mfm-wallet/logo.svg">
+        <h2>VAVILON</h2>
+        <div class="row mob-hide align-start-center">
+            <div class="nav-menu">
+                <button class="nav-menu-button">Documents</button>
+                <div class="nav-menu-content">
+                    <a href="/mfm-landing/docs?doc=dev">For Developers</a>
+                    <a href="/mfm-landing/docs?doc=roadmap">Roadmap</a>
+                    <a href="/mfm-landing/docs?doc=terms">Terms and conditions</a>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <button class="nav-menu-button">Applications</button>
+                <div class="nav-menu-content">
+                    <a href="/mfm-wallet">Wallet</a>
+                    <a href="/mfm-landing/explorer">Explorer</a>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <a href="/mfm-landing/explorer">
+                    <button class="nav-menu-button">Explorer</button>
+                </a>
+            </div>
         </div>
-      </div>
-      <div class="nav-menu">
-        <button class="nav-menu-button">Applications</button>
-        <div class="nav-menu-content">
-          <a href="/mfm-wallet">Wallet</a>
-          <a href="/mfm-landing/explorer">Explorer</a>
+        <div class="flex"></div>
+        <div class="col mob-show">
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="burger-menu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </label>
+            <div class="menu">
+                <a href="/mfm-wallet">Wallet</a>
+                <a href="/mfm-landing/explorer">Explorer</a>
+                <a href="/mfm-landing/docs?doc=dev">For Developers</a>
+                <a href="/mfm-landing/docs?doc=roadmap">Roadmap</a>
+                <a href="/mfm-landing/docs?doc=terms">Terms and conditions</a>
+            </div>
         </div>
-      </div>
-      <div class="nav-menu">
-        <a href="/mfm-landing/explorer">
-          <button class="nav-menu-button">Explorer</button>
-        </a>
-      </div>
     </div>
-    <div class="flex"></div>
-    <div class="col mob-show">
-      <input type="checkbox" id="menu-toggle">
-      <label for="menu-toggle" class="burger-menu">
-        <div></div>
-        <div></div>
-        <div></div>
-      </label>
-      <div class="menu">
-        <a href="/mfm-wallet">Wallet</a>
-        <a href="/mfm-landing/explorer">Explorer</a>
-        <a href="/mfm-landing/docs?doc=dev">For Developers</a>
-        <a href="/mfm-landing/docs?doc=whitepaper">White paper</a>
-        <a href="/mfm-landing/docs?doc=roadmap">Roadmap</a>
-        <a href="/mfm-landing/docs?doc=terms">Terms and conditions</a>
-      </div>
-    </div>
-  </div>
 </div>
 <div class="col align-start-center">
-  <div class="hhero-background-gradient_wrapper" style="z-index: 0">
-    <img src="/mfm-landing/img/Gradient%20BG.svg"
-         loading="lazy" class="hhero_bg-gradient">
-    <img src="/mfm-landing/img/Frame%20427321323.svg"
-         loading="lazy" class="hhero_dot-pattern">
-    <img src="/mfm-landing/img/Illus.svg"
-         loading="lazy" class="hhero_bg-graphic2">
-    <img src="/mfm-landing/img/Group%20427320220%20(1).svg"
-         loading="lazy" class="hhero_bg-graphic1">
-  </div>
-  <div class="col block">
-    <div style="height: 160px"></div>
-    <div class="mob-hide" style="height: 140px"></div>
-    <div class="row upper">
-      <div class="col gap16">
-        <h1 class="text0 uppercase">Free Blockchain</h1>
-        <h2 style="max-width: 40rem">All transaction are free.<br>Only miners pays commissions.</h2>
-        <div class="row mt16 gap16">
-          <a class="primary-button row align-start-center gap8"
-             href="/mfm-wallet">
-            <p>Wallet</p>
-            <img class="img16 img-white" src="/mfm-wallet/img/arrow-right.svg">
-          </a>
-          <a class="primary-button back-black border-accent hover-accent"
-             href="/mfm-landing/docs?doc=whitepaper">
-            Whitepaper
-          </a>
-        </div>
-      </div>
+    <div class="hhero-background-gradient_wrapper" style="z-index: 0">
+        <img src="/mfm-landing/img/Gradient%20BG.svg"
+             loading="lazy" class="hhero_bg-gradient">
+        <img src="/mfm-landing/img/Frame%20427321323.svg"
+             loading="lazy" class="hhero_dot-pattern">
+        <img src="/mfm-landing/img/Group%20427320220%20(1).svg"
+             loading="lazy" class="hhero_bg-graphic1">
+        <img src="/mfm-landing/img/Illus.svg"
+             loading="lazy" class="hhero_bg-graphic2">
     </div>
-  </div>
-
-  <div class="col block">
-    <h1 class="text0 uppercase">Fast as Bullet</h1>
-    <div class="row gap32 mob-col">
-      <div class="flex col align-start-center half-block">
-        <h2>Наш блокчейн настолько быстр, что оставляет остальные в пыли, обеспечивая молниеносные транзакции и
-          беспрецедентную скорость обработки данных!</h2>
-      </div>
-      <div class="flex col align-start half-block">
-        <div class="col">
-          <p class="text0 text-gradient-1" id="tran_count">29.7M+</p>
-          <p class="text1">Free transactions</p>
+    <div class="col block">
+        <div style="height: 160px"></div>
+        <div class="mob-hide" style="height: 140px"></div>
+        <div class="row upper">
+            <div class="col gap16">
+                <h1 class="text0 uppercase">Vavilon</h1>
+                <h2>Бесплатный блокчейн без лимитов скорости.
+                    <div class="row"
+                         style="margin-top: 40px">
+                        <a class="primary-button row align-start-center gap8"
+                           href="/mfm-wallet">
+                            <p>Демо кошелька</p>
+                            <img class="img16 img-white" src="/mfm-wallet/img/arrow-right.svg">
+                        </a>
+                    </div>
+            </div>
         </div>
-        <div class="col">
-          <p class="text0 text-gradient-2" id="data_count">340M+</p>
-          <p class="text1">Contracts Payments</p>
-        </div>
-        <div class="col">
-          <p class="text0 text-gradient-3">$0.0003</p>
-          <p class="text1">Median Fee per Contract</p>
-        </div>
-
-        <script>
-          fetch(location.origin + "/mfm-token/version", {
-            method: "POST",
-          }).then(response => {
-            if (!response.ok) throw new Error('Network response was not ok');
-            return response.json();
-          }).then(function (response) {
-            document.getElementById("tran_count").innerText = response.tran_count
-            document.getElementById("data_count").innerText = response.data_history_count
-          });
-        </script>
-
-        <div class="row">
-          <a class="primary-button mt16"
-             href="/mfm-wallet#openAnalytics">
-            Learn more
-          </a>
-        </div>
-      </div>
     </div>
-  </div>
 
-  <div class="col block">
-    <h1 class="text0 uppercase">Team</h1>
-    <div class="row gap32 mob-col">
-      <div class="flex col align-start-center p16 border-white half-block">
-        <div class="row user-wrapper mb16">
-          <img class="user" src="/mfm-landing/img/founder.png">
+    <div class="col block">
+        <div class="background_gradient-parent">
+            <div class="background_gradient rotate-reverse"></div>
         </div>
-        <h1>Mike Haiduk</h1>
-        <h2>Founder</h2>
-        <div class="row align-center-center mt16">
-          <a class="primary-button"
-             href="https://t.me/mikefromminsk">
-            Contact
-          </a>
+        <h1 class="text0 uppercase">FREE transactions</h1>
+        <div class="row gap32 mob-col">
+            <div class="flex col align-start-center half-block">
+                <h2>Все транзакции бесплатны. Комиссии в сети платят только майнеры.</h2>
+            </div>
+            <div class="flex col align-start half-block">
+                <div class="col">
+                    <p class="text0 text-gradient-1" id="tran_count">29.7M+</p>
+                    <p class="text1">Free transactions</p>
+                </div>
+                <div class="col">
+                    <p class="text0 text-gradient-2" id="data_count">340M+</p>
+                    <p class="text1">Contracts Payments</p>
+                </div>
+                <div class="col">
+                    <p class="text0 text-gradient-3">$0.0003</p>
+                    <p class="text1">Цена за добычу блока.</p>
+                </div>
+
+                <script>
+                    fetch(location.origin + "/mfm-token/version", {
+                        method: "POST",
+                    }).then(response => {
+                        if (!response.ok) throw new Error('Network response was not ok');
+                        return response.json();
+                    }).then(function (response) {
+                        document.getElementById("tran_count").innerText = response.tran_count
+                        document.getElementById("data_count").innerText = response.data_history_count
+                    });
+                </script>
+
+                <div class="row">
+                    <a class="primary-button mt16"
+                       href="/mfm-wallet#openAnalytics">
+                        Learn more
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="flex col align-start-center p16 border-white half-block">
-        <div class="row user-wrapper mb16">
-          <img class="user" src="/mfm-landing/img/founder.png">
-        </div>
-        <h1></h1>
-        <h2>Co-Founder</h2>
-      </div>
     </div>
-  </div>
+    <div class="col block">
+        <div class="background_gradient-parent">
+            <div class="background_gradient rotate-reverse"></div>
+        </div>
+        <h1 class="text0 uppercase">No speed limit</h1>
+        <div class="row gap32 mob-col">
+            <div class="flex col align-start-center half-block">
+                <h2>Транзакции выполняются параллельно на всех кошельках. И это значит что нет </h2>
+            </div>
+            <div class="flex col align-start half-block">
+                <div class="col">
+                    <p class="text0 text-gradient-1" id="tran_count">29.7M+</p>
+                    <p class="text1">Free transactions</p>
+                </div>
+                <div class="col">
+                    <p class="text0 text-gradient-2" id="data_count">340M+</p>
+                    <p class="text1">Contracts Payments</p>
+                </div>
+                <div class="col">
+                    <p class="text0 text-gradient-3">$0.0003</p>
+                    <p class="text1">Median Fee per Contract</p>
+                </div>
+
+                <script>
+                    fetch(location.origin + "/mfm-token/version", {
+                        method: "POST",
+                    }).then(response => {
+                        if (!response.ok) throw new Error('Network response was not ok');
+                        return response.json();
+                    }).then(function (response) {
+                        document.getElementById("tran_count").innerText = response.tran_count
+                        document.getElementById("data_count").innerText = response.data_history_count
+                    });
+                </script>
+
+                <div class="row">
+                    <a class="primary-button mt16"
+                       href="/mfm-wallet#openAnalytics">
+                        Learn more
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col block">
+        <h1 class="text0 uppercase">Applications</h1>
+        <div class="row gap32 mob-col">
+            <div class="flex col align-start-center half-block">
+                <h2></h2>
+            </div>
+            <div class="flex col align-start half-block">
+                <!--<div class="phone-mockup">
+                  <div class="phone-frame">
+                    <iframe src="/mfm-wallet" frameborder="0"></iframe>
+                  </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+    <div class="col block">
+        <h1 class="text0 uppercase">Dream Team</h1>
+        <div class="row gap32 mob-col">
+            <div class="flex col align-start-center p16 border-white half-block">
+                <div class="row user-wrapper mb16">
+                    <img class="user" src="/mfm-landing/img/founder.png">
+                </div>
+                <h1>Mike Haiduk</h1>
+                <h2>Founder</h2>
+                <div class="row align-center-center mt16">
+                    <a class="primary-button"
+                       href="https://t.me/mikefromminsk">
+                        Contact
+                    </a>
+                </div>
+            </div>
+            <div class="flex col align-start-center p16 border-white half-block">
+                <div class="row user-wrapper mb16">
+                    <img class="user" src="/mfm-landing/img/founder.png">
+                </div>
+                <h1></h1>
+                <h2>Co-Founder</h2>
+            </div>
+        </div>
+        <div class="row flex-50 ">
+            <div class="flex col align-start-center p16 border-white half-block">
+                <div class="row user-wrapper mb16">
+                    <img class="user" src="/mfm-landing/img/telegram2.svg">
+                </div>
+                <h1></h1>
+                <h2>Темщики</h2>
+                <div class="row align-center-center mt16">
+                    <a class="primary-button"
+                       href="https://t.me/mikefromminsk">
+                        Contact
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="col align-start-center hover-text-accent" style="background: black">
-  <div class="col block" style="padding: 80px 2em; ">
-    <div class="row mob-col gap32">
-      <div class="flex col gap16 wrap">
-        <h2>Languages</h2>
-        <a href="?lang=en">
-          <h3>English</h3>
-        </a>
-        <a href="?lang=en">
-          <h3>Русский</h3>
-        </a>
-        <a href="?lang=co">
-          <h3>中文</h3>
-        </a>
-        <a href="?lang=cn">
-          <h3>日本語</h3>
-        </a>
-      </div>
-      <div class="flex col gap16 wrap">
-        <h2>Documents</h2>
-        <a href="/mfm-landing/docs?doc=api">
-          <h3>Api</h3>
-        </a>
-        <a href="/mfm-landing/docs?doc=whitepaper">
-          <h3>White paper</h3>
-        </a>
-        <a href="/mfm-landing/docs?doc=terms">
-          <h3>Terms and conditions</h3>
-        </a>
-        <a href="/mfm-landing/docs?doc=roadmap">
-          <h3>Roadmap</h3>
-        </a>
-      </div>
-      <div class="flex col gap16 wrap">
-        <h2>Applications</h2>
-        <a href="/mfm-wallet">
-          <h3>Wallet</h3>
-        </a>
-        <a href="/mfm-landing/explorer">
-          <h3>Explorer</h3>
-        </a>
-        <a href="/mfm-wallet/#openExchange=vavilon">
-          <h3>Exchange</h3>
-        </a>
-        <a href="/mfm-wallet/#openP2P">
-          <h3>P2P</h3>
-        </a>
-      </div>
+    <div class="col block" style="padding: 80px 2em; ">
+        <div class="row mob-col gap32">
+            <div class="flex col gap16 wrap">
+                <h2>Languages</h2>
+                <a href="?lang=en">
+                    <h3>English</h3>
+                </a>
+                <a href="?lang=en">
+                    <h3>Русский</h3>
+                </a>
+                <a href="?lang=co">
+                    <h3>中文</h3>
+                </a>
+                <a href="?lang=cn">
+                    <h3>日本語</h3>
+                </a>
+            </div>
+            <div class="flex col gap16 wrap">
+                <h2>Documents</h2>
+                <a href="/mfm-landing/docs?doc=api">
+                    <h3>Api</h3>
+                </a>
+                <a href="/mfm-landing/docs?doc=whitepaper">
+                    <h3>White paper</h3>
+                </a>
+                <a href="/mfm-landing/docs?doc=terms">
+                    <h3>Terms and conditions</h3>
+                </a>
+                <a href="/mfm-landing/docs?doc=roadmap">
+                    <h3>Roadmap</h3>
+                </a>
+            </div>
+            <div class="flex col gap16 wrap">
+                <h2>Applications</h2>
+                <a href="/mfm-wallet">
+                    <h3>Wallet</h3>
+                </a>
+                <a href="/mfm-landing/explorer">
+                    <h3>Explorer</h3>
+                </a>
+                <a href="/mfm-wallet/#openExchange=vavilon">
+                    <h3>Exchange</h3>
+                </a>
+                <a href="/mfm-wallet/#openP2P">
+                    <h3>P2P</h3>
+                </a>
+            </div>
+        </div>
+        <div class="row social gap8" style="margin-top: 50px;">
+            <a class="back-white img-black radius-default img32 p8 hover-accent"
+               href="https://t.me/vavilon_network" target="_blank">
+                <img class="img16" src="/mfm-landing/img/telegram.svg">
+            </a>
+            <a class="back-white img-black radius-default img32 p8 hover-accent"
+               href="https://twitter.com/vavilon_network" target="_blank">
+                <img class="img16" src="/mfm-landing/img/twitter.svg">
+            </a>
+            <a class="back-white img-black radius-default img32 p8 hover-accent"
+               href="https://twitter.com/vavilon_network" target="_blank">
+                <img class="img16" src="/mfm-landing/img/instagram.svg">
+            </a>
+            <a class="back-white img-black radius-default img32 p8 hover-accent"
+               href="https://twitter.com/vavilon_network" target="_blank">
+                <img class="img16" src="/mfm-landing/img/facebook.svg">
+            </a>
+            <a class="back-white img-black radius-default img32 p8 hover-accent"
+               href="https://twitter.com/vavilon_network" target="_blank">
+                <img class="img16" src="/mfm-landing/img/reddit.svg">
+            </a>
+        </div>
     </div>
-    <div class="row social gap8" style="margin-top: 50px;">
-      <a class="back-white img-black radius-default img32 p8 hover-accent"
-         href="https://t.me/vavilon_network" target="_blank">
-        <img class="img16" src="/mfm-landing/img/telegram.svg">
-      </a>
-      <a class="back-white img-black radius-default img32 p8 hover-accent"
-         href="https://twitter.com/vavilon_network" target="_blank">
-        <img class="img16" src="/mfm-landing/img/twitter.svg">
-      </a>
-      <a class="back-white img-black radius-default img32 p8 hover-accent"
-         href="https://twitter.com/vavilon_network" target="_blank">
-        <img class="img16" src="/mfm-landing/img/instagram.svg">
-      </a>
-      <a class="back-white img-black radius-default img32 p8 hover-accent"
-         href="https://twitter.com/vavilon_network" target="_blank">
-        <img class="img16" src="/mfm-landing/img/facebook.svg">
-      </a>
-      <a class="back-white img-black radius-default img32 p8 hover-accent"
-         href="https://twitter.com/vavilon_network" target="_blank">
-        <img class="img16" src="/mfm-landing/img/reddit.svg">
-      </a>
-    </div>
-  </div>
 </div>
 
 </body>
