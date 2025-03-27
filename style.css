@@ -88,7 +88,8 @@ h3:hover {
 .block {
     padding-left: 2rem;
     padding-right: 2rem;
-    padding-bottom: 10em;
+    padding-bottom: 4em;
+    padding-top: 4em;
     text-wrap: auto;
     z-index: 0;
 }
@@ -322,7 +323,7 @@ input[type="checkbox"]:checked ~ .menu {
 .background_gradient-parent {
     z-index: -2;
     position: absolute;
-    transform: translate(-50%, -50%);
+    transform: translate(0%, -50%);
 }
 
 .background_gradient {
@@ -392,16 +393,3 @@ img.user {
 
 
 
-.background_gradient.rotate-reverse {
-     transform-style: preserve-3d;
-    transform: rotate(-5deg) scale3d(3, 1.5, 1);
-}
-
-.background_gradient {
-    transform-style: preserve-3d;
-    background-image: radial-gradient(circle closest-side, #b328584d, #b3285800);
-    width: 30rem;
-    height: 30rem;
-    overflow: hidden;
-    transform: rotate(12deg) scale3d(3, 1.5, 1);
-}

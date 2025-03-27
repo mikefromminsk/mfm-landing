@@ -13,6 +13,7 @@
     <script src="/mfm-wallet/utils/lightweight-charts.standalone.production.js"></script>
     <link href="/mfm-wallet/utils/odometer-theme-default.css" rel="stylesheet">
     <script src="/mfm-wallet/utils/odometer.min.js"></script>
+    <script src="/mfm-wallet/utils/odometer-utils.js"></script>
     <script src="/mfm-landing/utils/particles.min.js"></script>
     <script src="/mfm-landing/utils/highlight.min.js"></script>
     <link rel="stylesheet" href="/mfm-landing/utils/github-dark.min.css">
@@ -56,11 +57,11 @@
                 <button class="nav-menu-button">Applications</button>
                 <div class="nav-menu-content">
                     <a href="/mfm-wallet">Wallet</a>
-                    <a href="/mfm-landing/explorer">Explorer</a>
+                    <a href="/mfm-explorer">Explorer</a>
                 </div>
             </div>
             <div class="nav-menu">
-                <a href="/mfm-landing/explorer">
+                <a href="/mfm-explorer">
                     <button class="nav-menu-button">Explorer</button>
                 </a>
             </div>
@@ -75,7 +76,7 @@
             </label>
             <div class="menu">
                 <a href="/mfm-wallet">Wallet</a>
-                <a href="/mfm-landing/explorer">Explorer</a>
+                <a href="/mfm-explorer">Explorer</a>
                 <a href="/mfm-landing/docs?doc=dev">For Developers</a>
                 <a href="/mfm-landing/docs?doc=roadmap">Roadmap</a>
                 <a href="/mfm-landing/docs?doc=terms">Terms and conditions</a>
@@ -100,157 +101,204 @@
         <div class="row upper">
             <div class="col gap16">
                 <h1 class="text0 uppercase">Vavilon</h1>
-                <h2>Бесплатный блокчейн без лимитов скорости.
-                    <div class="row"
-                         style="margin-top: 40px">
-                        <a class="primary-button row align-start-center gap8"
-                           href="/mfm-wallet">
-                            <p>Демо кошелька</p>
-                            <img class="img16 img-white" src="/mfm-wallet/img/arrow-right.svg">
-                        </a>
-                    </div>
+                <h2>Бесплатный блокчейн без лимитов скорости.</h2>
+                <div class="row"
+                     style="margin-top: 40px">
+                    <a class="primary-button row align-start-center gap8"
+                       href="/mfm-wallet">
+                        <p>Демо кошелька</p>
+                        <img class="img16 img-white" src="/mfm-wallet/img/arrow-right.svg">
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="col block">
-        <div class="background_gradient-parent">
-            <div class="background_gradient rotate-reverse"></div>
-        </div>
         <h1 class="text0 uppercase">FREE transactions</h1>
         <div class="row gap32 mob-col">
             <div class="flex col align-start-center half-block">
-                <h2>Все транзакции бесплатны. Комиссии в сети платят только майнеры.</h2>
+                <h1>Все транзакции бесплатны. Комиссии платят только майнеры.</h1>
+                <h2 style="margin-top: 24px;">Все токены высвобождаются с помощью майнинга.
+                    Это положительно влияет на цену токена и борьбу со скаммерами.
+                    Цена за майнинг одного блока базируется на количестве записей в распределенную базу данных.
+                    Одна запись в базу стоит $0.0001. А для каждого найденного блока нужно 3 записи.</h2>
             </div>
-            <div class="flex col align-start half-block">
+            <div class="flex col align-start half-block uppercase">
                 <div class="col">
-                    <p class="text0 text-gradient-1" id="tran_count">29.7M+</p>
-                    <p class="text1">Free transactions</p>
+                    <p class="text0 bold" style="color: #f087ff" id="tran_count"></p>
+                    <p class="text1">Бесплатных транзакций</p>
                 </div>
                 <div class="col">
-                    <p class="text0 text-gradient-2" id="data_count">340M+</p>
-                    <p class="text1">Contracts Payments</p>
+                    <p class="text0 bold" style="color: #1fcff1" id="data_count"></p>
+                    <p class="text1">Блоков найдено</p>
                 </div>
                 <div class="col">
                     <p class="text0 text-gradient-3">$0.0003</p>
-                    <p class="text1">Цена за добычу блока.</p>
+                    <p class="text1">Цена за добычу блока</p>
                 </div>
 
                 <script>
                     fetch(location.origin + "/mfm-token/version", {
                         method: "POST",
                     }).then(response => {
-                        if (!response.ok) throw new Error('Network response was not ok');
                         return response.json();
                     }).then(function (response) {
-                        document.getElementById("tran_count").innerText = response.tran_count
-                        document.getElementById("data_count").innerText = response.data_history_count
+                        createOdometer(document.getElementById("tran_count"),
+                            response.tran_count, Math.round(response.tran_count * 1.1), 60000, 'count')
+                        createOdometer(document.getElementById("data_count"),
+                            response.data_count, Math.round(response.data_count * 1.1), 60000, 'count')
                     });
                 </script>
-
-                <div class="row">
-                    <a class="primary-button mt16"
-                       href="/mfm-wallet#openAnalytics">
-                        Learn more
-                    </a>
-                </div>
             </div>
         </div>
     </div>
     <div class="col block">
+        <h1 class="text0 uppercase">No speed limit</h1>
+        <div class="row gap32 mob-col mt16">
+            <div class="flex col gap16 p16 back-blur">
+                <div class="row gap8">
+                    <div style="height: 100%; width: 2px; background: #1fcff1"></div>
+                    <h2>Fast</h2>
+                </div>
+                <p>Don’t keep your users waiting. Vavilon has block times of 400 milliseconds — and as hardware gets
+                    faster, so will the network.</p>wefwef
+                <div class="row text1 gap4"><p style="color: #1fcff1">·</p>4 187</div>
+                <div class="text2 uppercase">Transactions per Second</div>
+            </div>
+            <div class="flex col gap16 p16 back-blur">
+                <div class="row gap8">
+                    <div style="height: 100%; width: 2px; background: #f087ff"></div>
+                    <h2>Scalable</h2>
+                </div>
+                <p>Get big, quick. Vavilon is made to handle thousands of transactions per second, and fees for both
+                    developers and users remain less than $0.0001.</p>
+                <div class="row text1 gap4"><p style="color: #f087ff">·</p>2</div>
+                <div class="text2 uppercase">Validator Nodes</div>
+            </div>
+            <div class="flex col gap16 p16 back-blur">
+                <div class="row gap8">
+                    <div style="height: 100%; width: 2px; background: var(--green)"></div>
+                    <h2>Energy Efficient</h2>
+                </div>
+                <p>Vavilon’s network and other innovations minimize its impact on the environment. Each Vavilon
+                    transaction uses about the same energy as a few Google searches.</p>
+                <div class="row text1 gap4"><p style="color: var(--green)">·</p>0%</div>
+                <div class="text2 uppercase">Net Carbon Impact</div>
+            </div>
+        </div>
+        <div class="row gap32 mob-hide mt16">
+            <div class="flex col gap16 p16 back-blur">
+                <div class="row gap8">
+                    <div style="height: 100%; width: 2px; background: #1fcff1"></div>
+                    <h2>Grandma clear</h2>
+                </div>
+                <p>Tech, business, finance — no confusing jargon. Explained like you're talking to your grandma over
+                    tea.</p>
+                <div class="row text1 gap4"><p style="color: #1fcff1">·</p>4 187</div>
+                <div class="text2 uppercase">Accounts</div>
+            </div>
+            <div class="flex col gap16 p16 back-blur">
+                <div class="row gap8">
+                    <div style="height: 100%; width: 2px; background: #f087ff"></div>
+                    <h2>For Developers</h2>
+                </div>
+                <p>The documentation is simple and understandable for new developers, which allows increasing the speed
+                    of development of the Vavilon network core.</p>
+                <div class="row text1 gap4"><p style="color: #f087ff">·</p>1548</div>
+                <div class="text2 uppercase">Commits</div>
+            </div>
+            <div class="flex col gap16 p16 back-blur">
+                <div class="row gap8">
+                    <div style="height: 100%; width: 2px; background: var(--green)"></div>
+                    <h2>Bug Bounty Program</h2>
+                </div>
+                <p>Join our Bug Bounty Program — test system security and monetize your skills. Legally, professionally,
+                    and mutually beneficial.</p>
+                <div class="row text1 gap4"><p style="color: var(--green)">·</p>$100</div>
+                <div class="text2 uppercase">Reward per bug</div>
+            </div>
+        </div>
         <div class="background_gradient-parent">
             <div class="background_gradient rotate-reverse"></div>
         </div>
-        <h1 class="text0 uppercase">No speed limit</h1>
-        <div class="row gap32 mob-col">
-            <div class="flex col align-start-center half-block">
-                <h2>Транзакции выполняются параллельно на всех кошельках. И это значит что нет </h2>
+    </div>
+</div>
+<div class="col align-start-center back-pay">
+    <div class="col block ">
+        <h1 class="text0 uppercase mv16">Applications</h1>
+        <div class="row mob-col gap32">
+            <div class="row gap32" style="font-size: 30px">
+                <a class="row align-start-center gap16" href="/mfm-exchange">
+                    <img style="width: 60px" src="/mfm-exchange/logo.svg">
+                    <p>CEX Exchange</p>
+                </a>
             </div>
-            <div class="flex col align-start half-block">
-                <div class="col">
-                    <p class="text0 text-gradient-1" id="tran_count">29.7M+</p>
-                    <p class="text1">Free transactions</p>
-                </div>
-                <div class="col">
-                    <p class="text0 text-gradient-2" id="data_count">340M+</p>
-                    <p class="text1">Contracts Payments</p>
-                </div>
-                <div class="col">
-                    <p class="text0 text-gradient-3">$0.0003</p>
-                    <p class="text1">Median Fee per Contract</p>
-                </div>
-
-                <script>
-                    fetch(location.origin + "/mfm-token/version", {
-                        method: "POST",
-                    }).then(response => {
-                        if (!response.ok) throw new Error('Network response was not ok');
-                        return response.json();
-                    }).then(function (response) {
-                        document.getElementById("tran_count").innerText = response.tran_count
-                        document.getElementById("data_count").innerText = response.data_history_count
-                    });
-                </script>
-
-                <div class="row">
-                    <a class="primary-button mt16"
-                       href="/mfm-wallet#openAnalytics">
-                        Learn more
-                    </a>
-                </div>
+            <div class="row gap32" style="font-size: 30px">
+                <a class="row align-start-center gap16" href="/mfm-explorer">
+                    <img style="width: 60px" src="/mfm-explorer/logo.svg">
+                    <p>Vavi Explorer</p>
+                </a>
             </div>
         </div>
     </div>
-    <div class="col block">
-        <h1 class="text0 uppercase">Applications</h1>
-        <div class="row gap32 mob-col">
-            <div class="flex col align-start-center half-block">
-                <h2></h2>
-            </div>
-            <div class="flex col align-start half-block">
-                <!--<div class="phone-mockup">
-                  <div class="phone-frame">
-                    <iframe src="/mfm-wallet" frameborder="0"></iframe>
-                  </div>
-                </div>-->
-            </div>
-        </div>
-    </div>
+</div>
+<div class="col align-start-center">
     <div class="col block">
         <h1 class="text0 uppercase">Dream Team</h1>
         <div class="row gap32 mob-col">
-            <div class="flex col align-start-center p16 border-white half-block">
+            <div class="flex col align-start-center p16 border-white half-block"
+                 style="padding-bottom: 40px">
                 <div class="row user-wrapper mb16">
-                    <img class="user" src="/mfm-landing/img/founder.png">
+                    <a href="https://www.linkedin.com/in/mike-haiduk-081375b5/">
+                        <img class="user" src="/mfm-landing/img/founder.png">
+                    </a>
                 </div>
                 <h1>Mike Haiduk</h1>
                 <h2>Founder</h2>
+                <h2>Tech Specialist</h2>
                 <div class="row align-center-center mt16">
-                    <a class="primary-button"
+                    <a class="row gap8 primary-button"
                        href="https://t.me/mikefromminsk">
-                        Contact
+                        <img class="img32 img-white" src="/mfm-landing/img/telegram.svg">
+                        Написать
                     </a>
                 </div>
             </div>
-            <div class="flex col align-start-center p16 border-white half-block">
+            <div class="flex col align-start-center p16 border-white half-block"
+                 style="padding-bottom: 40px">
                 <div class="row user-wrapper mb16">
-                    <img class="user" src="/mfm-landing/img/founder.png">
+                    <a href="https://www.linkedin.com/in/olgatokareva8/">
+                        <img class="user" src="/mfm-landing/img/co-founder.png">
+                    </a>
                 </div>
-                <h1></h1>
+                <h1>Olga Tokareva</h1>
                 <h2>Co-Founder</h2>
+                <h2>Marketing Specialist</h2>
+                <div class="row align-center-center mt16">
+                    <a class="row gap8 primary-button"
+                       href="https://t.me/olga_bbm">
+                        <img class="img32 img-white" src="/mfm-landing/img/telegram.svg">
+                        Написать
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="row flex-50 ">
-            <div class="flex col align-start-center p16 border-white half-block">
+        <div class="row flex-50">
+            <div class="flex col align-start-center p16 border-white half-block"
+                 style="padding-bottom: 40px">
                 <div class="row user-wrapper mb16">
-                    <img class="user" src="/mfm-landing/img/telegram2.svg">
+                    <img class="user" src="/mfm-landing/img/temshiki.jpg">
                 </div>
-                <h1></h1>
-                <h2>Темщики</h2>
+                <h1>Vavilon community</h1>
                 <div class="row align-center-center mt16">
-                    <a class="primary-button"
-                       href="https://t.me/mikefromminsk">
-                        Contact
+                    <div class="background_gradient-parent">
+                        <div class="background_gradient rotate-reverse"></div>
+                    </div>
+                    <a class="row gap8 primary-button"
+                       href="https://t.me/vavitemshiki">
+                        <img class="img32 img-white" src="/mfm-landing/img/telegram.svg">
+                        Открыть чат
                     </a>
                 </div>
             </div>
@@ -281,9 +329,6 @@
                 <a href="/mfm-landing/docs?doc=api">
                     <h3>Api</h3>
                 </a>
-                <a href="/mfm-landing/docs?doc=whitepaper">
-                    <h3>White paper</h3>
-                </a>
                 <a href="/mfm-landing/docs?doc=terms">
                     <h3>Terms and conditions</h3>
                 </a>
@@ -296,41 +341,34 @@
                 <a href="/mfm-wallet">
                     <h3>Wallet</h3>
                 </a>
-                <a href="/mfm-landing/explorer">
+                <a href="/mfm-explorer">
                     <h3>Explorer</h3>
                 </a>
-                <a href="/mfm-wallet/#openExchange=vavilon">
+                <a href="/mfm-exchange/">
                     <h3>Exchange</h3>
-                </a>
-                <a href="/mfm-wallet/#openP2P">
-                    <h3>P2P</h3>
                 </a>
             </div>
         </div>
         <div class="row social gap8" style="margin-top: 50px;">
             <a class="back-white img-black radius-default img32 p8 hover-accent"
-               href="https://t.me/vavilon_network" target="_blank">
+               href="https://t.me/vavitemshiki" target="_blank">
                 <img class="img16" src="/mfm-landing/img/telegram.svg">
             </a>
             <a class="back-white img-black radius-default img32 p8 hover-accent"
-               href="https://twitter.com/vavilon_network" target="_blank">
-                <img class="img16" src="/mfm-landing/img/twitter.svg">
+               href="https://www.trustpilot.com/review/vavilon.org" target="_blank">
+                <img class="img16" src="/mfm-landing/img/star.svg">
             </a>
             <a class="back-white img-black radius-default img32 p8 hover-accent"
-               href="https://twitter.com/vavilon_network" target="_blank">
+               href="https://www.instagram.com/mikefromminsk" target="_blank">
                 <img class="img16" src="/mfm-landing/img/instagram.svg">
             </a>
             <a class="back-white img-black radius-default img32 p8 hover-accent"
-               href="https://twitter.com/vavilon_network" target="_blank">
-                <img class="img16" src="/mfm-landing/img/facebook.svg">
-            </a>
-            <a class="back-white img-black radius-default img32 p8 hover-accent"
-               href="https://twitter.com/vavilon_network" target="_blank">
-                <img class="img16" src="/mfm-landing/img/reddit.svg">
+               href="https://www.linkedin.com/company/105681433" target="_blank">
+                <img class="img16" src="/mfm-landing/img/linkedin.svg">
             </a>
         </div>
     </div>
 </div>
 
 </body>
-</html>
+</html
