@@ -8,9 +8,6 @@
     <meta name="keywords" content="Vavilon Network, блокчейн, бесплатные транзакции, майнинг, валидаторы, PoS, масштабируемость, безопасность">
     <title id="page-title">Vavilon - Free Blockchain</title>
     <script src="/mfm-wallet/utils/lightweight-charts.standalone.production.js"></script>
-    <link href="/mfm-wallet/utils/odometer-theme-default.css" rel="stylesheet">
-    <script src="/mfm-wallet/utils/odometer.min.js"></script>
-    <script src="/mfm-wallet/utils/odometer-utils.js"></script>
     <script src="/mfm-landing/utils/particles.min.js"></script>
     <script src="/mfm-landing/utils/highlight.min.js"></script>
     <script src="/mfm-landing/utils/locals.js"></script>
@@ -145,17 +142,77 @@
                     }).then(response => {
                         return response.json();
                     }).then(function (response) {
-                        createOdometer(document.getElementById("tran_count"),
-                            response.tran_count, Math.round(response.tran_count * 1.1), 60000, 'count')
-                        createOdometer(document.getElementById("data_count"),
-                            response.data_count, Math.round(response.data_count * 1.1), 60000, 'count')
+                        document.getElementById("tran_count").innerText = response.tran_count
+                        document.getElementById("data_count").innerText = Math.round(response.data_count / 3)
                     });
                 </script>
             </div>
         </div>
     </div>
 </div>
-
+<div class="col align-start-center">
+    <div class="col block">
+        <p id="speed-title" class="text0 uppercase">No speed limit</p>
+        <div class="row gap32 mob-col mt16">
+            <div class="flex col gap16 p16 back-blur">
+                <div class="row gap8">
+                    <div style="height: 100%; width: 2px; background: #1fcff1"></div>
+                    <p id="speed-feature1-title" class="text1">Быстрый</p>
+                </div>
+                <p id="speed-feature1-desc" class="text2">Не заставляйте пользователей ждать. Время блока в Vavilon составляет 400 миллисекунд — и с улучшением оборудования сеть станет ещё быстрее.</p>
+                <div class="row text1 gap4"><p style="color: #1fcff1">·</p><span id="speed-feature1-value">4 187</span></div>
+                <p id="speed-feature1-label" class="text1 uppercase">Транзакций в секунду</p>
+            </div>
+            <div class="flex col gap16 p16 back-blur">
+                <div class="row gap8">
+                    <div style="height: 100%; width: 2px; background: #f087ff"></div>
+                    <p id="speed-feature2-title" class="text1">Масштабируемый</p>
+                </div>
+                <p id="speed-feature2-desc" class="text2">Растите быстро. Vavilon создан для обработки тысяч транзакций в секунду, а комиссии для разработчиков и пользователей остаются ниже $0.0001.</p>
+                <div class="row text1 gap4"><p style="color: #f087ff">·</p><span id="speed-feature2-value">2</span></div>
+                <p id="speed-feature2-label" class="text1 uppercase">Нод-валидаторов</p>
+            </div>
+            <div class="flex col gap16 p16 back-blur">
+                <div class="row gap8">
+                    <div style="height: 100%; width: 2px; background: var(--green)"></div>
+                    <p id="speed-feature3-title" class="text1">Энергоэффективный</p>
+                </div>
+                <p id="speed-feature3-desc" class="text2">Сеть Vavilon и другие инновации минимизируют воздействие на окружающую среду. Каждая транзакция в Vavilon потребляет примерно столько же энергии, сколько несколько поисковых запросов в Google.</p>
+                <div class="row text1 gap4"><p style="color: var(--green)">·</p><span id="speed-feature3-value">0%</span></div>
+                <p id="speed-feature3-label" class="text1 uppercase">Углеродный след</p>
+            </div>
+        </div>
+        <div class="row gap32 mob-hide mt16">
+            <div class="flex col gap16 p16 back-blur">
+                <div class="row gap8">
+                    <div style="height: 100%; width: 2px; background: #1fcff1"></div>
+                    <p id="speed-feature4-title" class="text1">Понятно как бабушке</p>
+                </div>
+                <p id="speed-feature4-desc" class="text2">Технологии, бизнес, финансы — без сложного жаргона. Объясняем так, будто разговариваем с бабушкой за чаем.</p>
+                <div class="row text1 gap4"><p style="color: #1fcff1">·</p><span id="speed-feature4-value">4 187</span></div>
+                <p id="speed-feature4-label" class="text1 uppercase">Аккаунтов</p>
+            </div>
+            <div class="flex col gap16 p16 back-blur">
+                <div class="row gap8">
+                    <div style="height: 100%; width: 2px; background: #f087ff"></div>
+                    <p id="speed-feature5-title" class="text1">Для разработчиков</p>
+                </div>
+                <p id="speed-feature5-desc" class="text2">Документация проста и понятна для новых разработчиков, что позволяет ускорить развитие ядра сети Vavilon.</p>
+                <div class="row text1 gap4"><p style="color: #f087ff">·</p><span id="speed-feature5-value">1548</span></div>
+                <p id="speed-feature5-label" class="text1 uppercase">Коммитов</p>
+            </div>
+            <div class="flex col gap16 p16 back-blur">
+                <div class="row gap8">
+                    <div style="height: 100%; width: 2px; background: var(--green)"></div>
+                    <p id="speed-feature6-title" class="text1">Программа Bug Bounty</p>
+                </div>
+                <p id="speed-feature6-desc" class="text2">Присоединяйтесь к нашей программе Bug Bounty — тестируйте безопасность системы и монетизируйте свои навыки. Легально, профессионально и взаимовыгодно.</p>
+                <div class="row text1 gap4"><p style="color: var(--green)">·</p><span id="speed-feature6-value">100</span></div>
+                <p id="speed-feature6-label" class="text1 uppercase">Награда за баг</p>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="col align-start-center back-pay">
     <div class="col block ">
         <p id="apps-title" class="text0 uppercase">Applications</p>
