@@ -4,18 +4,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#000000">
     <link rel="icon" href="/mfm-wallet/logo.svg">
-    <meta name="description"
-          content="Vavilon Network - инновационная блокчейн-сеть с бесплатными транзакциями и доходом от майнинга для валидаторов.">
-    <meta name="keywords"
-          content="Vavilon Network, блокчейн, бесплатные транзакции, майнинг, валидаторы, PoS, масштабируемость, безопасность">
-    <title>Vavilon - Free BlockChain</title>
-
+    <meta name="description" content="Vavilon Network - инновационная блокчейн-сеть с бесплатными транзакциями и доходом от майнинга для валидаторов.">
+    <meta name="keywords" content="Vavilon Network, блокчейн, бесплатные транзакции, майнинг, валидаторы, PoS, масштабируемость, безопасность">
+    <title id="page-title">Vavilon - Free Blockchain</title>
     <script src="/mfm-wallet/utils/lightweight-charts.standalone.production.js"></script>
     <link href="/mfm-wallet/utils/odometer-theme-default.css" rel="stylesheet">
     <script src="/mfm-wallet/utils/odometer.min.js"></script>
     <script src="/mfm-wallet/utils/odometer-utils.js"></script>
     <script src="/mfm-landing/utils/particles.min.js"></script>
     <script src="/mfm-landing/utils/highlight.min.js"></script>
+    <script src="/mfm-landing/utils/locals.js"></script>
     <link rel="stylesheet" href="/mfm-landing/utils/github-dark.min.css">
 
     <link href="/mfm-flex/flex.css" rel="stylesheet">
@@ -25,7 +23,7 @@
     <link href="/mfm-flex/shorts.css?nocache" rel="stylesheet">
 
 </head>
-<body class="col" style="overflow-x: hidden">
+<body class="col" style="overflow-x: hidden; position: relative">
 <div style="display: block; position: absolute; max-width: 100%; height: 100%">
     <div id="particles-js"></div>
 </div>
@@ -41,103 +39,106 @@
     });
 </script>
 <div class="row header align-center-center" style="padding: 30px 16px;  position: fixed;  width: 100%;">
-    <div class="flex row align-start-center gap16">
-        <img class="img32" src="/mfm-wallet/logo.svg">
-        <h2>VAVILON</h2>
-        <div class="row mob-hide align-start-center">
-            <div class="nav-menu">
-                <button class="nav-menu-button">Documents</button>
-                <div class="nav-menu-content">
-                    <a href="/mfm-landing/docs?doc=dev">For Developers</a>
-                    <a href="/mfm-landing/docs?doc=roadmap">Roadmap</a>
-                    <a href="/mfm-landing/docs?doc=terms">Terms and conditions</a>
+    <div class="flex row align-center-center">
+        <div class="block row align-start-center gap16 pv0 ph16" style="padding-left: 2em">
+            <img class="img32" src="/mfm-wallet/logo.svg">
+            <h2 id="header-logo">VAVILON</h2>
+            <div class="row mob-hide align-start-center">
+                <div class="nav-menu">
+                    <button id="nav-docs-btn" class="nav-menu-button uppercase underline-animation text1">Documents</button>
+                    <div class="nav-menu-content">
+                        <a id="nav-docs-dev" href="/mfm-landing/docs?doc=dev">For Developers</a>
+                        <a id="nav-docs-roadmap" href="/mfm-landing/docs?doc=roadmap">Roadmap</a>
+                        <a id="nav-docs-terms" href="/mfm-landing/docs?doc=terms">Terms and conditions</a>
+                    </div>
+                </div>
+                <div class="nav-menu">
+                    <button id="nav-apps-btn" class="nav-menu-button uppercase underline-animation text1">Applications</button>
+                    <div class="nav-menu-content">
+                        <a id="nav-apps-wallet" href="/mfm-wallet">Wallet</a>
+                        <a id="nav-apps-explorer" href="/mfm-explorer">Explorer</a>
+                    </div>
+                </div>
+                <div class="nav-menu">
+                    <a href="/mfm-explorer">
+                        <button id="nav-explorer-btn" class="nav-menu-button uppercase underline-animation text1">Explorer</button>
+                    </a>
                 </div>
             </div>
-            <div class="nav-menu">
-                <button class="nav-menu-button">Applications</button>
-                <div class="nav-menu-content">
-                    <a href="/mfm-wallet">Wallet</a>
-                    <a href="/mfm-explorer">Explorer</a>
+            <div class="flex"></div>
+            <div class="col mob-show">
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="burger-menu">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </label>
+                <div class="menu">
+                    <a id="mob-nav-wallet" href="/mfm-wallet">Wallet</a>
+                    <a id="mob-nav-explorer" href="/mfm-explorer">Explorer</a>
+                    <a id="mob-nav-dev" href="/mfm-landing/docs?doc=dev">For Developers</a>
+                    <a id="mob-nav-roadmap" href="/mfm-landing/docs?doc=roadmap">Roadmap</a>
+                    <a id="mob-nav-terms" href="/mfm-landing/docs?doc=terms">Terms and conditions</a>
                 </div>
-            </div>
-            <div class="nav-menu">
-                <a href="/mfm-explorer">
-                    <button class="nav-menu-button">Explorer</button>
-                </a>
-            </div>
-        </div>
-        <div class="flex"></div>
-        <div class="col mob-show">
-            <input type="checkbox" id="menu-toggle">
-            <label for="menu-toggle" class="burger-menu">
-                <div></div>
-                <div></div>
-                <div></div>
-            </label>
-            <div class="menu">
-                <a href="/mfm-wallet">Wallet</a>
-                <a href="/mfm-explorer">Explorer</a>
-                <a href="/mfm-landing/docs?doc=dev">For Developers</a>
-                <a href="/mfm-landing/docs?doc=roadmap">Roadmap</a>
-                <a href="/mfm-landing/docs?doc=terms">Terms and conditions</a>
             </div>
         </div>
     </div>
 </div>
-<div class="col align-start-center">
-    <div class="hhero-background-gradient_wrapper" style="z-index: 0">
-        <img src="/mfm-landing/img/Gradient%20BG.svg"
-             loading="lazy" class="hhero_bg-gradient">
-        <img src="/mfm-landing/img/Frame%20427321323.svg"
-             loading="lazy" class="hhero_dot-pattern">
-        <img src="/mfm-landing/img/Group%20427320220%20(1).svg"
-             loading="lazy" class="hhero_bg-graphic1">
-        <img src="/mfm-landing/img/Illus.svg"
-             loading="lazy" class="hhero_bg-graphic2">
-    </div>
-    <div class="col block">
-        <div style="height: 160px"></div>
-        <div class="mob-hide" style="height: 140px"></div>
-        <div class="row upper">
-            <div class="col gap16">
-                <h1 class="text0 uppercase">Vavilon</h1>
-                <h2>Бесплатный блокчейн без лимитов скорости.</h2>
+<div class="fill col align-start-center" style="position: relative;overflow: hidden;">
+    <div class="fill col block pv0">
+        <div class="fill row align-start-center">
+            <div class="" style="z-index: -1;">
+                <img src="/mfm-landing/img/Gradient%20BG.svg"
+                     loading="lazy" class="hhero_bg-gradient">
+                <img src="/mfm-landing/img/Frame%20427321323.svg"
+                     loading="lazy" class="hhero_dot-pattern">
+                <img src="/mfm-landing/img/Group%20427320220%20(1).svg"
+                     loading="lazy" class="hhero_bg-graphic1">
+            </div>
+            <div class="flex col half-block">
+                <p id="hero-subtitle" class="text0 uppercase">Vavilon</p>
+                <p id="hero-title" class="text1">Бесплатный блокчейн</p>
+                <p id="hero-title2" class="text1">без лимитов скорости</p>
                 <div class="row"
                      style="margin-top: 40px">
-                    <a class="primary-button row align-start-center gap8"
+                    <a class="primary-button row align-start-center gap8 uppercase"
                        href="/mfm-wallet">
-                        <p>Демо кошелька</p>
-                        <img class="img16 img-white" src="/mfm-wallet/img/arrow-right.svg">
+                        <p id="wallet-demo-btn">Demo кошелька</p>
                     </a>
                 </div>
             </div>
+            <div class="flex col gap16 half-block mob-hide">
+                <img src="/mfm-landing/img/Illus.svg"
+                     loading="lazy" class="hhero_bg-graphic2">
+            </div>
         </div>
     </div>
-
+</div>
+<div class="col align-start-center ">
     <div class="col block">
-        <h1 class="text0 uppercase">FREE transactions</h1>
+        <p id="free-tx-title" class="text0 uppercase">FREE transactions</p>
         <div class="row gap32 mob-col">
-            <div class="flex col align-start-center half-block">
-                <h1>Все транзакции бесплатны. Комиссии платят только майнеры.</h1>
-                <h2 style="margin-top: 24px;">Все токены высвобождаются с помощью майнинга.
+            <div class="flex col half-block">
+                <p id="free-tx-desc1" class="text1">Все транзакции бесплатны.</p>
+                <p id="free-tx-desc2" class="text1">Комиссии платят только майнеры.</p>
+                <p id="free-tx-desc3" class="text2" style="margin-top: 24px;">Все токены высвобождаются с помощью майнинга. <br>
                     Это положительно влияет на цену токена и борьбу со скаммерами.
                     Цена за майнинг одного блока базируется на количестве записей в распределенную базу данных.
-                    Одна запись в базу стоит $0.0001. А для каждого найденного блока нужно 3 записи.</h2>
+                    <br>Одна запись в базу стоит $0.0001. А для каждого найденного блока нужно 3 записи.</p>
             </div>
             <div class="flex col align-start half-block uppercase">
                 <div class="col">
-                    <p class="text0 bold" style="color: #f087ff" id="tran_count"></p>
-                    <p class="text1">Бесплатных транзакций</p>
+                    <p class="text0" style="color: #f087ff" id="tran_count"></p>
+                    <p id="free-tx-counter-label" class="text1">Бесплатных транзакций</p>
                 </div>
-                <div class="col">
-                    <p class="text0 bold" style="color: #1fcff1" id="data_count"></p>
-                    <p class="text1">Блоков найдено</p>
+                <div class="col mt16">
+                    <p class="text0" style="color: #1fcff1" id="data_count"></p>
+                    <p id="blocks-counter-label" class="text1">Блоков найдено</p>
                 </div>
-                <div class="col">
+                <div class="col mt16">
                     <p class="text0 text-gradient-3">$0.0003</p>
-                    <p class="text1">Цена за добычу блока</p>
+                    <p id="block-price-label" class="text1">Цена за добычу блока</p>
                 </div>
-
                 <script>
                     fetch(location.origin + "/mfm-token/version", {
                         method: "POST",
@@ -153,91 +154,22 @@
             </div>
         </div>
     </div>
-    <div class="col block">
-        <h1 class="text0 uppercase">No speed limit</h1>
-        <div class="row gap32 mob-col mt16">
-            <div class="flex col gap16 p16 back-blur">
-                <div class="row gap8">
-                    <div style="height: 100%; width: 2px; background: #1fcff1"></div>
-                    <h2>Fast</h2>
-                </div>
-                <p>Don’t keep your users waiting. Vavilon has block times of 400 milliseconds — and as hardware gets
-                    faster, so will the network.</p>wefwef
-                <div class="row text1 gap4"><p style="color: #1fcff1">·</p>4 187</div>
-                <div class="text2 uppercase">Transactions per Second</div>
-            </div>
-            <div class="flex col gap16 p16 back-blur">
-                <div class="row gap8">
-                    <div style="height: 100%; width: 2px; background: #f087ff"></div>
-                    <h2>Scalable</h2>
-                </div>
-                <p>Get big, quick. Vavilon is made to handle thousands of transactions per second, and fees for both
-                    developers and users remain less than $0.0001.</p>
-                <div class="row text1 gap4"><p style="color: #f087ff">·</p>2</div>
-                <div class="text2 uppercase">Validator Nodes</div>
-            </div>
-            <div class="flex col gap16 p16 back-blur">
-                <div class="row gap8">
-                    <div style="height: 100%; width: 2px; background: var(--green)"></div>
-                    <h2>Energy Efficient</h2>
-                </div>
-                <p>Vavilon’s network and other innovations minimize its impact on the environment. Each Vavilon
-                    transaction uses about the same energy as a few Google searches.</p>
-                <div class="row text1 gap4"><p style="color: var(--green)">·</p>0%</div>
-                <div class="text2 uppercase">Net Carbon Impact</div>
-            </div>
-        </div>
-        <div class="row gap32 mob-hide mt16">
-            <div class="flex col gap16 p16 back-blur">
-                <div class="row gap8">
-                    <div style="height: 100%; width: 2px; background: #1fcff1"></div>
-                    <h2>Grandma clear</h2>
-                </div>
-                <p>Tech, business, finance — no confusing jargon. Explained like you're talking to your grandma over
-                    tea.</p>
-                <div class="row text1 gap4"><p style="color: #1fcff1">·</p>4 187</div>
-                <div class="text2 uppercase">Accounts</div>
-            </div>
-            <div class="flex col gap16 p16 back-blur">
-                <div class="row gap8">
-                    <div style="height: 100%; width: 2px; background: #f087ff"></div>
-                    <h2>For Developers</h2>
-                </div>
-                <p>The documentation is simple and understandable for new developers, which allows increasing the speed
-                    of development of the Vavilon network core.</p>
-                <div class="row text1 gap4"><p style="color: #f087ff">·</p>1548</div>
-                <div class="text2 uppercase">Commits</div>
-            </div>
-            <div class="flex col gap16 p16 back-blur">
-                <div class="row gap8">
-                    <div style="height: 100%; width: 2px; background: var(--green)"></div>
-                    <h2>Bug Bounty Program</h2>
-                </div>
-                <p>Join our Bug Bounty Program — test system security and monetize your skills. Legally, professionally,
-                    and mutually beneficial.</p>
-                <div class="row text1 gap4"><p style="color: var(--green)">·</p>$100</div>
-                <div class="text2 uppercase">Reward per bug</div>
-            </div>
-        </div>
-        <div class="background_gradient-parent">
-            <div class="background_gradient rotate-reverse"></div>
-        </div>
-    </div>
 </div>
+
 <div class="col align-start-center back-pay">
     <div class="col block ">
-        <h1 class="text0 uppercase mv16">Applications</h1>
-        <div class="row mob-col gap32">
+        <p id="apps-title" class="text0 uppercase">Applications</p>
+        <div class="row mob-col gap32" style="margin-top: 32px">
             <div class="row gap32" style="font-size: 30px">
                 <a class="row align-start-center gap16" href="/mfm-exchange">
                     <img style="width: 60px" src="/mfm-exchange/logo.svg">
-                    <p>CEX Exchange</p>
+                    <p id="cex-exchange-text" class="text1">CEX Exchange</p>
                 </a>
             </div>
             <div class="row gap32" style="font-size: 30px">
                 <a class="row align-start-center gap16" href="/mfm-explorer">
                     <img style="width: 60px" src="/mfm-explorer/logo.svg">
-                    <p>Vavi Explorer</p>
+                    <p id="explorer-text" class="text1">Vavi Explorer</p>
                 </a>
             </div>
         </div>
@@ -245,63 +177,28 @@
 </div>
 <div class="col align-start-center">
     <div class="col block">
-        <h1 class="text0 uppercase">Dream Team</h1>
-        <div class="row gap32 mob-col">
-            <div class="flex col align-start-center p16 border-white half-block"
-                 style="padding-bottom: 40px">
+        <p id="team-title" class="text0 uppercase">Dream Team</p>
+        <div class="row gap32 mob-col" style="margin-top: 24px">
+            <a class="flex col align-start-center p16 border-white-opacity half-block"
+               href="https://www.linkedin.com/in/mike-haiduk-081375b5/" target="_blank"
+               style="padding-bottom: 40px">
                 <div class="row user-wrapper mb16">
-                    <a href="https://www.linkedin.com/in/mike-haiduk-081375b5/">
-                        <img class="user" src="/mfm-landing/img/founder.png">
-                    </a>
+                    <img class="user" src="/mfm-landing/img/founder.png">
                 </div>
-                <h1>Mike Haiduk</h1>
-                <h2>Founder</h2>
-                <h2>Tech Specialist</h2>
-                <div class="row align-center-center mt16">
-                    <a class="row gap8 primary-button"
-                       href="https://t.me/mikefromminsk">
-                        <img class="img32 img-white" src="/mfm-landing/img/telegram.svg">
-                        Написать
-                    </a>
-                </div>
-            </div>
-            <div class="flex col align-start-center p16 border-white half-block"
-                 style="padding-bottom: 40px">
+                <p id="founder-name" class="text1">Mike Haiduk</p>
+                <p id="founder-role1" class="text2">Founder</p>
+                <p id="founder-role2" class="text2">Tech Specialist</p>
+            </a>
+            <a class="flex col align-start-center p16 border-white-opacity half-block"
+               href="https://www.linkedin.com/in/olgatokareva8/" target="_blank"
+               style="padding-bottom: 40px">
                 <div class="row user-wrapper mb16">
-                    <a href="https://www.linkedin.com/in/olgatokareva8/">
-                        <img class="user" src="/mfm-landing/img/co-founder.png">
-                    </a>
+                    <img class="user" src="/mfm-landing/img/co-founder.png">
                 </div>
-                <h1>Olga Tokareva</h1>
-                <h2>Co-Founder</h2>
-                <h2>Marketing Specialist</h2>
-                <div class="row align-center-center mt16">
-                    <a class="row gap8 primary-button"
-                       href="https://t.me/olga_bbm">
-                        <img class="img32 img-white" src="/mfm-landing/img/telegram.svg">
-                        Написать
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="row flex-50">
-            <div class="flex col align-start-center p16 border-white half-block"
-                 style="padding-bottom: 40px">
-                <div class="row user-wrapper mb16">
-                    <img class="user" src="/mfm-landing/img/temshiki.jpg">
-                </div>
-                <h1>Vavilon community</h1>
-                <div class="row align-center-center mt16">
-                    <div class="background_gradient-parent">
-                        <div class="background_gradient rotate-reverse"></div>
-                    </div>
-                    <a class="row gap8 primary-button"
-                       href="https://t.me/vavitemshiki">
-                        <img class="img32 img-white" src="/mfm-landing/img/telegram.svg">
-                        Открыть чат
-                    </a>
-                </div>
-            </div>
+                <p id="cofounder-name" class="text1">Olga Tokareva</p>
+                <p id="cofounder-role1" class="text2">Co-Founder</p>
+                <p id="cofounder-role2" class="text2">Marketing Specialist</p>
+            </a>
         </div>
     </div>
 </div>
@@ -310,42 +207,36 @@
     <div class="col block" style="padding: 80px 2em; ">
         <div class="row mob-col gap32">
             <div class="flex col gap16 wrap">
-                <h2>Languages</h2>
+                <p id="footer-lang-title" class="text1">Languages</p>
                 <a href="?lang=en">
-                    <h3>English</h3>
+                    <h3 id="lang-en">English</h3>
                 </a>
-                <a href="?lang=en">
-                    <h3>Русский</h3>
-                </a>
-                <a href="?lang=co">
-                    <h3>中文</h3>
-                </a>
-                <a href="?lang=cn">
-                    <h3>日本語</h3>
+                <a href="?lang=ru">
+                    <h3 id="lang-ru">Русский</h3>
                 </a>
             </div>
             <div class="flex col gap16 wrap">
-                <h2>Documents</h2>
+                <h2 id="footer-docs-title">Documents</h2>
                 <a href="/mfm-landing/docs?doc=api">
-                    <h3>Api</h3>
+                    <h3 id="footer-docs-api">Api</h3>
                 </a>
                 <a href="/mfm-landing/docs?doc=terms">
-                    <h3>Terms and conditions</h3>
+                    <h3 id="footer-docs-terms">Terms and conditions</h3>
                 </a>
                 <a href="/mfm-landing/docs?doc=roadmap">
-                    <h3>Roadmap</h3>
+                    <h3 id="footer-docs-roadmap">Roadmap</h3>
                 </a>
             </div>
             <div class="flex col gap16 wrap">
-                <h2>Applications</h2>
+                <h2 id="footer-apps-title">Applications</h2>
                 <a href="/mfm-wallet">
-                    <h3>Wallet</h3>
+                    <h3 id="footer-apps-wallet">Wallet</h3>
                 </a>
                 <a href="/mfm-explorer">
-                    <h3>Explorer</h3>
+                    <h3 id="footer-apps-explorer">Explorer</h3>
                 </a>
                 <a href="/mfm-exchange/">
-                    <h3>Exchange</h3>
+                    <h3 id="footer-apps-exchange">Exchange</h3>
                 </a>
             </div>
         </div>
@@ -369,6 +260,5 @@
         </div>
     </div>
 </div>
-
 </body>
-</html
+</html>
