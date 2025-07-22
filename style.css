@@ -110,10 +110,7 @@ h3:hover {
 
 
 .block {
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding-bottom: 8em;
-    padding-top: 4em;
+    padding: 20px;
     text-wrap: auto;
     z-index: 0;
 }
@@ -441,15 +438,6 @@ img.user {
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 4px;
 }
-
-
-
-
-
-
-
-
-
 
 
 .odometer {
