@@ -63,7 +63,7 @@ async function launch(ticker, mnemonic, success) {
 повышает безопасность.
 
 ```javascript
-// from /mfm-wallet/utils/back_utils.js
+// from /mfm-wallet/base/back_utils.js
 
 let hash = async (s) =>
     Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s))))
