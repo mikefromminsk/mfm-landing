@@ -32,7 +32,8 @@ A reward program for discovering vulnerabilities and bugs in our system.
 - Non-critical enhancements
 
 #### **3. Reporting Process**
-- Submit all reports via: [Report Form](https://forms.gle/tkmh94BFptT4XNmb7)
+- Submit all reports via:  
+  🔗 [https://t.me/vavilon_bugs](https://t.me/vavilon_bugs)
 - Include detailed reproduction steps
 - Attach supporting evidence (screenshots, logs)
 

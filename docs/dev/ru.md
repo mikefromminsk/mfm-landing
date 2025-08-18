@@ -1,129 +1,194 @@
-# Инструкция для разработчиков: Как принимать доллары, используя криптовалютную сеть Вавилон
+# codestyle
 
-## Введение
+Пиши чётко и конкретно, без двусмысленностей.
+ВСЕГДА возвращай полный исходный код изменённых файлов (сохраняй структуру).
+Сохраняй единый стиль кодирования по всему проекту (отступы, кавычки, форматирование).
+Имена переменных и функций — короткие и информативные (например: userList, configPath, errorMsg).
+Не удаляй и не изменяй код без явного указания.
+ВСЕГДА удаляй символы точка с запятой в js файлах.
+НИКОГДА не добавляй новых комментариев, но не удаляй уже существующие комментарии.
+Группируй код для удобства чтения:
+    - CSS — по блокам классов.
+    - JS — функции сверху, выполнение кода снизу.
+Не придумывай и не описывай того, чего нет в проекте, если это не указано в запросе.
+ВСЕГДА используй только двойные кавычки для строк в js файлах.
+В js объектах которые пишутся в несколько строчек там обязательно должна быть в конце запятая.
 
-Сеть Вавилон представляет собой современную криптовалютную сеть с высокой скоростью транзакций и отсутствием комиссий,
-что делает её идеальной для интеграции в различные финансовые системы. В данной инструкции мы рассмотрим, как создать
-токен, настроить аккаунты и получать уведомления о транзакциях.
+# Навигация и структура
 
-## Основные преимущества сети Вавилон
+Для одного окна всегда создавай один controller.js и index.html
+В файле navigation.js указывай упрощенный доступ к открытию окон
+Встраивай внутри окон инструкции к использованию в папке окна новую папку faq с названиями языков en.html и ru.html и тд. текст только с тегами <p>
+Под окна с всеми действиями этого окна должны находиться внутри папки окна из которого оно открывается
+Переводы должны находиться в папке strings внутри папки окна
 
-1. Высокая скорость транзакций: Сеть Вавилон позволяет осуществлять транзакции в считанные секунды.
-2. Отстствие комиссий: Все транзакции в сети Вавилон являются бесплатными, что выгодно отличает её от других
-   криптовалютных сетей.
-3. Безопасность: Вавилон использует современные криптографические методы для обеспечения безопасности всех операций.
-4. Удобство использования: Сеть Вавилон имеет простой и интуитивно понятный интерфейс для разработчиков и пользователей.
-
-## Шаг 1: Генерация адреса и приватного ключа
-
-Для создания токена в сети Вавилон необходимо сгенерировать адрес и приватный ключ. Адрес используется для идентификации
-пользователя, а приватный ключ — для подписи транзакций и доступа к аккаунту.
-
-```javascript
-let hash = async (s) =>
-    Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s))))
-        .map(b => b.toString(16).padStart(2, '0')).join('');
-
-let mnemonic = "beyond asthma eternal orchard ski hockey opinion web this wine click crowd";
-let privateKey = await hash(mnemonic);
-let address = await hash(privateKey);
+**Подключи контроллер в главный index.html**
+```html
+<script async onload="loaded()" src="/mfm-wallet/withdrawal/controller.js?v=14"></script>
 ```
 
-## Шаг 1: Создание токена
-
-Создание собственного токена в сети Вавилон — это первый шаг к интеграции вашей системы. Токены позволяют вам выпускать
-собственные цифровые активы, которые могут быть использованы для различных целей, таких как оплата товаров и услуг,
-вознаграждения пользователей и многое другое.
-
+**Добавь в navigator.js отрытие окна**
 ```javascript
-let hash = async (s) =>
-    Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s))))
-        .map(b => b.toString(16).padStart(2, '0')).join('');
+function addNavigator($scope) {
+	// все открытия которые уже существуют
 
-async function launch(ticker, mnemonic, success) {
-    let privateKey = await hash(mnemonic);
-    let address = await hash(privateKey);
-    let launchHash = await hash(await hash(ticker + address + privateKey));
-    fetch(location.origin + "/mfm-token/send", {
-        method: "POST",
-        body: JSON.stringify({
-            domain: ticker,
-            to: address,
-            next_hash: launchHash,
-            amount: 1000000,
-        }),
-    }).then(success);
+	$scope.openNewWindow = function (success) {
+		openNewWindow(success)
+	}
 }
 ```
 
-## Шаг 3: Создание аккаунта
+# Создание и изменение окон
 
-В сети Вавилон можно сгенерировать множество адресов, используя один приватный ключ. Это позволяет пользователям
-создавать несколько кошельков и управлять своими активами с помощью одного ключа, что упрощает процесс управления и
-повышает безопасность.
+Для верстки используй только mfm-shorts.
+
+## 3. Выбор типа окна
+
+Есть два варианта реализации:
+
+### **A. Стандартный диалог (`md-dialog`)**
+
+Используется для автономных окон.
+**Контроллер:**
 
 ```javascript
-// from /mfm-wallet/base/back_utils.js
+function openNewWindow(success) {
+   showDialog("wallet/window_name", success, function ($scope) {
+       $scope.inputValue = ''
 
-let hash = async (s) =>
-    Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s))))
-        .map(b => b.toString(16).padStart(2, '0')).join('');
+       $scope.submit = function () {
+           success($scope.inputValue)
+           $scope.close()
+       }
 
-function calcKey(ticker, address, password, prevKey) {
-    return hash(ticker + address + password + (prevKey || ""));
-}
+       function loadInfo() {
+           postContract("mfm-token", "accounts", function (response) {
+               $scope.accounts = response.accounts
+               $scope.$apply()
+           })
+       }
 
-async function newAccount(ticker, mnemonic, success) {
-    let privateKey = await hash(mnemonic);
-    let address = await hash(privateKey);
-    let launchHash = await hash(await hash(ticker + address + privateKey));
+       $scope.refresh = function () {
+           loadInfo()
+       }
 
-    fetch(location.origin + "/mfm-token/account", {
-        method: "POST",
-        body: JSON.stringify({
-            domain: ticker,
-            address: address
-        }),
-    }).then(response => response.json()).then(function (response) {
-        fetch(location.origin + "/mfm-token/send", {
-            method: "POST",
-            body: JSON.stringify({
-                domain: ticker,
-                to: address,
-                pass: launchHash,
-                amount: 1000000,
-            }),
-        }).then(success);
-    });
-    
-    
-
-    
+       $scope.refresh()
+   })
 }
 ```
 
-## Шаг 4: Получение уведомлений о транзакциях
+**Вёрстка:**
 
-Для получения уведомлений о транзакциях в сети Вавилон необходимо настроить систему наблюдения за транзакциями. Это
-позволяет получать информацию о всех произведенных транзакциях в режиме реального времени и реагировать на них в
-зависимости от потребностей вашей системы.
+```html
+<md-dialog class="fill col">
+   <div class="row header align-start-center">
+       <div class="flex row align-center">{{str.window_name}}</div>
+       <div class="row align-center-center img32 back-gray radius-default ripple" ng-click="close()">
+           <img class="img16 img-gray400" src="/mfm-wallet/img/close.svg">
+       </div>
+   </div>
 
-## Возможность поднять свою ноду
+   <div class="flex col scroll align-start-center">
+       <div class="flex col block input-content">
+           <div class="col" ng-repeat="account in accounts">
+               <p>{{account.domain}}</p>
+               <p>{{account.balance}}</p>
+           </div>
+           <div class="row input-wrapper">
+               <input type="text" ng-model="inputValue" placeholder="Введите значение">
+           </div>
+           <div class="primary-button" ng-click="submit()">{{str.send}}</div>
+       </div>
+   </div>
+</md-dialog>
+```
 
-В любой момент вы можете поднять свою ноду в сети Вавилон. Это даст вам возможность контролировать и управлять своим
-токеном полностью независимо от остальных участников сети. Поднятие собственной ноды позволяет:
+---
 
-- Быть независимым: Вы сможете управлять своим токеном автономно, без зависимости от других нод и инфраструктуры.
-- Обеспечить безопасность: Собственная нода позволяет вам полностью контролировать безопасность и конфиденциальность
-  данных.
-- Увеличить надежность: Поднятие своей ноды позволяет вам обеспечивать бесперебойную работу вашего токена даже в случае
-  проблем с центральными серверами.
+### **B. Встраиваемый экран (div вместо md-dialog)**
 
-## Заключение
+Используется для модулей внутри других диалогов (**исключения**: `store`, `wallet`, `search`, `login`).
+Главная функция начинается с **`add`**.
 
-Сеть Вавилон предоставляет разработчикам мощные инструменты для интеграции криптовалюты в их системы. Высокая скорость,
-отсутствие комиссий и простота использования делают её идеальной для различных приложений. Следуя данной инструкции, вы
-сможете создать свои токены, настроить аккаунты и получать уведомления о транзакциях, используя возможности сети
-Вавилон.
+**Контроллер:**
 
+```javascript
+function openNewWindow(success) {
+    trackCall(arguments)
+    showDialog("wallet/login", success, function ($scope) {
+        addNewWindow($scope)
+    })
+}
 
+function addNewWindow($scope) {
+    // Логика страницы
+}
+```
+
+**Структура вёрстки:**
+
+* `injection.html` — **контент блока**
+
+```html
+<div class="flex col">
+    Content
+</div>
+```
+
+* `index.html` — **оболочка**
+
+```html
+<md-dialog class="fill col">
+    <ng-include src="'/new_window.html'"></ng-include>
+</md-dialog>
+```
+
+# Команды для создания `readme.md`
+
+Напиши в первой строке название проекта (если нет — придумай).
+Сделай один подзаголовок с целью проекта.
+Если есть код — добавь короткий пример использования.
+В конце блоком укажи весь список файлов с локальными путями и простыми комментариями (одна строка на файл).
+Укажи зависимости если они указаны.
+
+# Инструкция по работе с переводами
+
+## Переводы однострочные для использования в верстке
+### 1. Добавить ключ перевода
+В папке strings в default.js нужно добавить (английский язык)
+```javascript
+str.new_translation_key = "New translation key"
+```
+
+Для другого языка например strings/lang/ru.js нужно добавить
+```javascript
+str.new_translation_key = "Новый ключ для перевода"
+```
+
+### 2. Использовать перевод в HTML
+Чтобы вывести строку перевода, вставь в HTML:
+```html
+{{str.new_translation_key}}
+```
+
+## Переводы многострочные
+### 1. Создать html файл в локальной папке faq
+Создать файл en.html только строки тегами <p>
+```html
+<p>1. <strong>Your seed phrase is stored only on your device.</strong> Neither the service nor the developers have access to it.</p>
+<p>2. If you lose your seed phrase, <strong>you will permanently lose access to your wallet.</strong> Keep it in a secure place!</p>
+<p>3. To restore or migrate your wallet, <strong>you only need this phrase.</strong> No passwords or emails will help.</p>
+```
+
+Создать файлы для других языков например ru.html
+```html
+<p>1. <strong>Секретная фраза хранится только на вашем устройстве.</strong> Ни сервис, ни разработчики не имеют к ней доступа.</p>
+<p>2. Если вы потеряете секретную фразу, <strong>восстановить доступ к кошельку будет невозможно.</strong> Сохраните её в надежном месте!</p>
+<p>3. Для восстановления или переноса кошелька вам понадобится <strong>только эта фраза.</strong> Никакие пароли или почта не помогут.</p>
+```
+
+### 2. Внедрить в верстку с подстановкой языка
+```html
+<div class="nowrap-disabled m16"
+     ng-include="[PATH_TO_DIALOG]/faq/' + getLanguage() + '.html'"></div>
+```
