@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -10,29 +9,31 @@
     <meta name="keywords"
           content="Vavilon Network, блокчейн, бесплатные транзакции, майнинг, валидаторы, PoS, масштабируемость, безопасность">
     <title>Vavilon - Бесплатный Блокчейн</title>
-    <script src="/mfm-wallet/utils/lightweight-charts.standalone.production.js"></script>
-    <script src="/mfm-landing/utils/particles.min.js"></script>
 
     <link href="/mfm-shorts/shorts.css" rel="stylesheet">
     <link href="/mfm-wallet/colors.css" rel="stylesheet">
     <link href="/mfm-wallet/style.css" rel="stylesheet">
     <link href="/mfm-landing/style.css" rel="stylesheet">
+
+    <script async onload="initParticles()" src="/mfm-landing/utils/particles.min.js"></script>
+    <script>
+        function initParticles() {
+            particlesJS.load('particles-js', 'particles.json');
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('.header');
+                if (window.scrollY > 100) {
+                    header.classList.add('back-blur');
+                } else {
+                    header.classList.remove('back-blur');
+                }
+            });
+        }
+    </script>
 </head>
 <body class="col" style="overflow-x: hidden; position: relative">
 <div style="display: block; position: absolute; max-width: 100%; height: 100%">
     <div id="particles-js"></div>
 </div>
-<script>
-    particlesJS.load('particles-js', 'particles.json');
-    window.addEventListener('scroll', () => {
-        const header = document.querySelector('.header');
-        if (window.scrollY > 100) {
-            header.classList.add('back-blur');
-        } else {
-            header.classList.remove('back-blur');
-        }
-    });
-</script>
 <div class="row header p16 align-center-center" style="position: fixed;  width: 100%;">
     <div class="flex row align-center-center">
         <div class="block row align-start-center gap16 pv0 ph16">
@@ -40,16 +41,25 @@
             <p class="mob-show">VAVILON</p>
             <div class="mob-hide row align-start-center">
                 <a class="nav-menu" href="/mfm-wallet">
-                    <button class="nav-menu-button">Кошелёк</button>
+                    <button class="nav-menu-button">Кошелек</button>
                 </a>
-                <div class="nav-menu">
+                <!--<div class="nav-menu">
                     <button class="nav-menu-button">Документы</button>
                     <div class="nav-menu-content">
                         <a href="/mfm-docs?doc=dev">Для разработчиков</a>
                         <a href="/mfm-docs?doc=roadmap">Дорожная карта</a>
                         <a href="/mfm-docs?doc=terms">Условия использования</a>
                     </div>
-                </div>
+                </div>-->
+                <a class="nav-menu" href="/mfm-docs?doc=api">
+                    <button class="nav-menu-button">Api</button>
+                </a>
+                <a class="nav-menu" href="/mfm-docs?doc=roadmap">
+                    <button class="nav-menu-button">Дорожная карта</button>
+                </a>
+                <!--<a class="nav-menu" href="/mfm-docs?doc=roadmap">
+                    <button class="nav-menu-button">Контакты</button>
+                </a>-->
                 <a class="nav-menu" href="/mfm-explorer">
                     <button class="nav-menu-button">Обозреватель</button>
                 </a>
@@ -63,11 +73,10 @@
                     <div></div>
                 </label>
                 <div class="menu">
-                    <a href="/mfm-wallet">Кошелёк</a>
-                    <a href="/mfm-explorer">Обозреватель</a>
+                    <a href="/mfm-wallet">Кошелек</a>
                     <a href="/mfm-docs?doc=dev">Для разработчиков</a>
                     <a href="/mfm-docs?doc=roadmap">Дорожная карта</a>
-                    <a href="/mfm-docs?doc=terms">Условия использования</a>
+                    <a href="/mfm-explorer">Обозреватель</a>
                 </div>
             </div>
         </div>
@@ -101,7 +110,7 @@
         </div>
     </div>
 </div>
-<div class="col align-start-center ">
+<div class="col align-start-center">
     <div class="col block">
         <h2>БЕСПЛАТНЫЕ транзакции</h2>
         <div class="row gap32 mob-col">
@@ -110,6 +119,9 @@
                     Это положительно сказывается на цене токена и борьбе с мошенниками.
                     Цена майнинга одного блока основана на количестве записей в распределенной базе данных.
                     <br>Одна запись в базе данных стоит $0.0001. И для каждого найденного блока требуется 3 записи.</p>
+                <div class="row" style="margin-top: 40px">
+                    <a class="primary-button" href="/mfm-docs?doc=api">Для разработчиков</a>
+                </div>
             </div>
             <div class="flex col align-start half-block uppercase">
                 <div class="col">
@@ -140,6 +152,32 @@
 </div>
 <div class="col align-start-center">
     <div class="col block">
+        <h2>Дорожная карта 2025</h2>
+        <div class="row gap32 mob-col">
+            <div class="flex col half-block">
+                <p><b>Q3 Альфа-релиз</b></p>
+                <ul>
+                    <li>Выпуск альфа-версии блокчейн-платформы</li>
+                    <li>Внутреннее тестирование и сбор отзывов</li>
+                    <li>Продолжение расширения партнерств</li>
+                </ul>
+            </div>
+            <div class="flex col half-block">
+                <p><b>Q4 Бета-релиз</b></p>
+                <ul>
+                    <li>Запуск бета-версии платформы для публичного тестирования</li>
+                    <li>Внедрение отзывов из альфа-тестирования</li>
+                    <li>Подготовка к запуску mainnet</li>
+                </ul>
+                <div class="row" style="margin-top: 40px">
+                    <a class="primary-button" href="/mfm-docs?doc=roadmap">Что дальше</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col align-start-center">
+    <div class="col block">
         <h2>Контакты</h2>
         <div class="row gap32 mob-col" style="margin-top: 24px">
             <div class="flex col align-start-center p16 border-white-opacity half-block"
@@ -164,7 +202,7 @@
                         <img class="img16" src="img/linkedin.svg">
                     </a>
                     <a class="back-white radius-default img32 p8 hover-accent"
-                       href="https://github.com/mikefromminsk/mfm-wallet">
+                       href="https://github.com/mikefromminsk/">
                         <img class="img16" src="img/git.svg">
                     </a>
                 </div>
@@ -206,14 +244,12 @@
             </div>
             <div class="flex col gap16 wrap">
                 <p><b>Документы</b></p>
-                <a href="/mfm-docs?doc=api">API</a>
-                <a href="/mfm-docs?doc=terms">Условия использования</a>
-                <a href="/mfm-docs?doc=bugbounty">Bug Bounty</a>
+                <a href="/mfm-docs?doc=api">Api</a>
                 <a href="/mfm-docs?doc=roadmap">Дорожная карта</a>
             </div>
             <div class="flex col gap16 wrap">
                 <p><b>Приложения</b></p>
-                <a href="/mfm-wallet">Кошелёк</a>
+                <a href="/mfm-wallet">Кошелек</a>
                 <a href="/mfm-explorer">Обозреватель</a>
             </div>
         </div>
