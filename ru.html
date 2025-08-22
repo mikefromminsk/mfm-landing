@@ -1,39 +1,38 @@
-<html>
+<!DOCTYPE html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#000000">
     <link rel="icon" href="/mfm-wallet/logo.svg">
     <meta name="description"
-          content="Vavilon Network - an innovative blockchain network with free transactions and mining income for validators.">
+          content="Vavilon Network - инновационная блокчейн-сеть с бесплатными транзакциями и доходом от майнинга для валидаторов.">
     <meta name="keywords"
-          content="Vavilon Network, blockchain, free transactions, mining, validators, PoS, scalability, security">
-    <title>Vavilon - Free Blockchain</title>
+          content="Vavilon Network, блокчейн, бесплатные транзакции, майнинг, валидаторы, PoS, масштабируемость, безопасность">
+    <title>Vavilon - Бесплатный Блокчейн</title>
+    <script src="/mfm-wallet/utils/lightweight-charts.standalone.production.js"></script>
+    <script src="/mfm-landing/utils/particles.min.js"></script>
 
     <link href="/mfm-shorts/shorts.css" rel="stylesheet">
     <link href="/mfm-wallet/colors.css" rel="stylesheet">
     <link href="/mfm-wallet/style.css" rel="stylesheet">
     <link href="/mfm-landing/style.css" rel="stylesheet">
-
-    <script async onload="initParticles()" src="/mfm-landing/utils/particles.min.js"></script>
-    <script>
-        function initParticles() {
-            particlesJS.load('particles-js', 'particles.json');
-            window.addEventListener('scroll', () => {
-                const header = document.querySelector('.header');
-                if (window.scrollY > 100) {
-                    header.classList.add('back-blur');
-                } else {
-                    header.classList.remove('back-blur');
-                }
-            });
-        }
-    </script>
 </head>
 <body class="col" style="overflow-x: hidden; position: relative">
 <div style="display: block; position: absolute; max-width: 100%; height: 100%">
     <div id="particles-js"></div>
 </div>
+<script>
+    particlesJS.load('particles-js', 'particles.json');
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('.header');
+        if (window.scrollY > 100) {
+            header.classList.add('back-blur');
+        } else {
+            header.classList.remove('back-blur');
+        }
+    });
+</script>
 <div class="row header p16 align-center-center" style="position: fixed;  width: 100%;">
     <div class="flex row align-center-center">
         <div class="block row align-start-center gap16 pv0 ph16">
@@ -41,27 +40,18 @@
             <p class="mob-show">VAVILON</p>
             <div class="mob-hide row align-start-center">
                 <a class="nav-menu" href="/mfm-wallet">
-                    <button class="nav-menu-button">Wallet</button>
+                    <button class="nav-menu-button">Кошелёк</button>
                 </a>
-                <!--<div class="nav-menu">
-                    <button class="nav-menu-button">Documents</button>
+                <div class="nav-menu">
+                    <button class="nav-menu-button">Документы</button>
                     <div class="nav-menu-content">
-                        <a href="/mfm-docs?doc=dev">For Developers</a>
-                        <a href="/mfm-docs?doc=roadmap">Roadmap</a>
-                        <a href="/mfm-docs?doc=terms">Terms and conditions</a>
+                        <a href="/mfm-docs?doc=dev">Для разработчиков</a>
+                        <a href="/mfm-docs?doc=roadmap">Дорожная карта</a>
+                        <a href="/mfm-docs?doc=terms">Условия использования</a>
                     </div>
-                </div>-->
-                <a class="nav-menu" href="/mfm-docs?doc=api">
-                    <button class="nav-menu-button">Api</button>
-                </a>
-                <a class="nav-menu" href="/mfm-docs?doc=roadmap">
-                    <button class="nav-menu-button">Roadmap</button>
-                </a>
-                <!--<a class="nav-menu" href="/mfm-docs?doc=roadmap">
-                    <button class="nav-menu-button">Contacts</button>
-                </a>-->
+                </div>
                 <a class="nav-menu" href="/mfm-explorer">
-                    <button class="nav-menu-button">Explorer</button>
+                    <button class="nav-menu-button">Обозреватель</button>
                 </a>
             </div>
             <div class="flex"></div>
@@ -73,10 +63,11 @@
                     <div></div>
                 </label>
                 <div class="menu">
-                    <a href="/mfm-wallet">Wallet</a>
-                    <a href="/mfm-docs?doc=dev">For Developers</a>
-                    <a href="/mfm-docs?doc=roadmap">Roadmap</a>
-                    <a href="/mfm-explorer">Explorer</a>
+                    <a href="/mfm-wallet">Кошелёк</a>
+                    <a href="/mfm-explorer">Обозреватель</a>
+                    <a href="/mfm-docs?doc=dev">Для разработчиков</a>
+                    <a href="/mfm-docs?doc=roadmap">Дорожная карта</a>
+                    <a href="/mfm-docs?doc=terms">Условия использования</a>
                 </div>
             </div>
         </div>
@@ -97,10 +88,10 @@
                 <a href="/mfm-wallet">
                     <h1>Vavilon</h1>
                 </a>
-                <p>Free Blockchain</p>
-                <p>without speed limits</p>
+                <p>Бесплатный Блокчейн</p>
+                <p>без ограничений скорости</p>
                 <div class="row" style="margin-top: 40px">
-                    <a class="primary-button" href="https://t.me/vavilon_org_bot">Wallet Demo</a>
+                    <a class="primary-button" href="https://t.me/vavilon_org_bot">Демо Кошелька</a>
                 </div>
             </div>
             <div class="flex col half-block mob-hide">
@@ -110,84 +101,55 @@
         </div>
     </div>
 </div>
-<div class="col align-start-center">
+<div class="col align-start-center ">
     <div class="col block">
-        <h2>FREE transactions</h2>
-            <div class="row gap32 mob-col">
-                <div class="flex col half-block">
-                    <p>All tokens are released through mining. <br>
-                        This has a positive effect on the token price and the fight against scammers.
-                        The price for mining one block is based on the number of entries in the distributed database.
-                        <br>One database entry costs $0.0001. And for each block found, 3 entries are needed.</p>
-                    <div class="row" style="margin-top: 40px">
-                        <a class="primary-button" href="/mfm-docs?doc=api">For developers</a>
-                    </div>
-                </div>
-                <div class="flex col align-start half-block uppercase">
-                    <div class="col">
-                        <h1 style="color: #f087ff" id="tran_count"></h1>
-                        <p>Free transactions</p>
-                    </div>
-                    <div class="col mt16">
-                        <h1 style="color: #1fcff1" id="data_count"></h1>
-                        <p>Accounts</p>
-                    </div>
-                    <div class="col mt16">
-                        <h1 class="text-gradient-3">$0.0003</h1>
-                        <p>Price for minting a block</p>
-                    </div>
-                    <script>
-                        fetch(location.origin + "/mfm-token/token?domain=vavilon", {
-                            method: "GET",
-                        }).then(response => {
-                            return response.json();
-                        }).then(function (response) {
-                            document.getElementById("tran_count").innerText = response.analytics.trans_count
-                            document.getElementById("data_count").innerText = response.analytics.accounts_count
-                        });
-                    </script>
-                </div>
-            </div>
-    </div>
-</div>
-<div class="col align-start-center">
-    <div class="col block">
-        <h2>Roadmap 2025</h2>
+        <h2>БЕСПЛАТНЫЕ транзакции</h2>
         <div class="row gap32 mob-col">
             <div class="flex col half-block">
-                <p><b>Q3 Alpha Release</b></p>
-                <ul>
-                    <li>Release of the alpha version of the blockchain platform</li>
-                    <li>Internal testing and feedback collection</li>
-                    <li>Continued expansion of partnerships</li>
-                </ul>
+                <p>Все токены выпускаются через майнинг. <br>
+                    Это положительно сказывается на цене токена и борьбе с мошенниками.
+                    Цена майнинга одного блока основана на количестве записей в распределенной базе данных.
+                    <br>Одна запись в базе данных стоит $0.0001. И для каждого найденного блока требуется 3 записи.</p>
             </div>
-            <div class="flex col half-block">
-                <p><b>Q4 Beta Release</b></p>
-                <ul>
-                    <li>Launch of the beta version of the platform for public testing</li>
-                    <li>Implementation of feedback from alpha testing</li>
-                    <li>Preparation for the mainnet launch</li>
-                </ul>
-                <div class="row" style="margin-top: 40px">
-                    <a class="primary-button" href="/mfm-docs?doc=roadmap">What`s next</a>
+            <div class="flex col align-start half-block uppercase">
+                <div class="col">
+                    <h1 style="color: #f087ff" id="tran_count"></h1>
+                    <p>Бесплатных транзакций</p>
                 </div>
+                <div class="col mt16">
+                    <h1 style="color: #1fcff1" id="data_count"></h1>
+                    <p>Аккаунтов</p>
+                </div>
+                <div class="col mt16">
+                    <h1 class="text-gradient-3">$0.0003</h1>
+                    <p>Цена создания блока</p>
+                </div>
+                <script>
+                    fetch(location.origin + "/mfm-token/token?domain=vavilon", {
+                        method: "GET",
+                    }).then(response => {
+                        return response.json();
+                    }).then(function (response) {
+                        document.getElementById("tran_count").innerText = response.analytics.trans_count
+                        document.getElementById("data_count").innerText = response.analytics.accounts_count
+                    });
+                </script>
             </div>
         </div>
     </div>
 </div>
 <div class="col align-start-center">
     <div class="col block">
-        <h2>Contacts</h2>
+        <h2>Контакты</h2>
         <div class="row gap32 mob-col" style="margin-top: 24px">
             <div class="flex col align-start-center p16 border-white-opacity half-block"
                  style="padding-bottom: 40px">
                 <div class="row user-wrapper mb16">
                     <img class="user" src="img/founder.png">
                 </div>
-                <p>Mike Haiduk</p>
-                <p class="text2">Founder</p>
-                <p class="text2">Tech Specialist</p>
+                <p>Майк Хайдук</p>
+                <p class="text2">Основатель</p>
+                <p class="text2">Технический специалист</p>
                 <div class="row gap8 mt16">
                     <a class="back-white radius-default img32 p8 hover-accent"
                        href="https://t.me/mikefromminsk">
@@ -212,9 +174,9 @@
                 <div class="row user-wrapper mb16">
                     <img class="user" src="img/co-founder.png">
                 </div>
-                <p>Olga Tokareva</p>
-                <p class="text2">Co-Founder</p>
-                <p class="text2">Marketing Specialist</p>
+                <p>Ольга Токарева</p>
+                <p class="text2">Сооснователь</p>
+                <p class="text2">Специалист по маркетингу</p>
                 <div class="row gap8 mt16">
                     <a class="back-white radius-default img32 p8 hover-accent"
                        href="https://t.me/olga_bbm">
@@ -238,19 +200,21 @@
     <div class="col block" style="padding: 80px 2em; ">
         <div class="row mob-col gap32">
             <div class="flex col gap16 wrap">
-                <p><b>Languages</b></p>
+                <p><b>Языки</b></p>
                 <a href="/?lang=en">English</a>
                 <a href="/?lang=ru">Русский</a>
             </div>
             <div class="flex col gap16 wrap">
-                <p><b>Documents</b></p>
-                <a href="/mfm-docs?doc=api">Api</a>
-                <a href="/mfm-docs?doc=roadmap">Roadmap</a>
+                <p><b>Документы</b></p>
+                <a href="/mfm-docs?doc=api">API</a>
+                <a href="/mfm-docs?doc=terms">Условия использования</a>
+                <a href="/mfm-docs?doc=bugbounty">Bug Bounty</a>
+                <a href="/mfm-docs?doc=roadmap">Дорожная карта</a>
             </div>
             <div class="flex col gap16 wrap">
-                <p><b>Applications</b></p>
-                <a href="/mfm-wallet">Wallet</a>
-                <a href="/mfm-explorer">Explorer</a>
+                <p><b>Приложения</b></p>
+                <a href="/mfm-wallet">Кошелёк</a>
+                <a href="/mfm-explorer">Обозреватель</a>
             </div>
         </div>
     </div>

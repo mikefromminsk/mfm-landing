@@ -52,7 +52,7 @@ function openAnalytics(success) {
             })
         }
 
-        addChart($scope, "start_pigeon", "start_pigeon")
+        //addChart($scope, "start_pigeon", "start_pigeon")
         postContract("mfm-analytics", "candles", {
             key: "start",
             period_name: "D",
