@@ -44,7 +44,7 @@ function openAnalytics(success) {
         ]
 
         for (let funnel of $scope.funnels) {
-            postContract("mfm-analytics", "funnel", {
+            post("mfm-analytics/funnel", {
                 funnel: funnel.events.join(","),
             }, function (response) {
                 funnel.response = response
@@ -53,7 +53,7 @@ function openAnalytics(success) {
         }
 
         //addChart($scope, "start_pigeon", "start_pigeon")
-        postContract("mfm-analytics", "candles", {
+        post("mfm-analytics/candles", {
             key: "start",
             period_name: "D",
         }, function (response) {
