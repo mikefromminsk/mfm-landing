@@ -92,6 +92,7 @@ h3:hover {
 }
 
 .primary-button {
+    color: var(--white) !important;
     transition: background-color 0.3s ease;
 }
 
@@ -106,7 +107,6 @@ h3:hover {
 .primary-button:hover {
     transform: scale(1.1);
 }
-
 
 .block {
     padding: 20px;
@@ -473,3 +473,31 @@ img.user {
     margin: 0 5px;
 }
 
+.enter {
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+.enter-delayed {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out 0.5s forwards;
+}
+
+.enter-slow {
+    opacity: 0;
+    animation: fadeIn 3s ease-out forwards;
+}
+
+.enter-fast {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
