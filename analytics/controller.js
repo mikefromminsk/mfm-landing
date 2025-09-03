@@ -22,7 +22,7 @@ function openAnalytics(success) {
                 "title": "Place orders",
                 "events": [
                     "start",
-                    "openTokenProfile",
+                    "openProfile",
                     "place",
                 ]
             },
