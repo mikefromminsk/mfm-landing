@@ -20,10 +20,10 @@
     <meta property="twitter:description" content="Инновационная блокчейн-сеть с бесплатными транзакциями...">-->
     <meta property="twitter:image" content="/mfm-landing/img/big_logo.png">
 
-    <link href="/mfm-shorts/shorts.css" rel="stylesheet">
-    <link href="/mfm-wallet/colors.css" rel="stylesheet">
-    <link href="/mfm-wallet/style.css" rel="stylesheet">
-    <link href="/mfm-landing/style.css" rel="stylesheet">
+    <link href="/mfm-shorts/shorts.css?v=15" rel="stylesheet">
+    <link href="/mfm-wallet/colors.css?v=15" rel="stylesheet">
+    <link href="/mfm-wallet/style.css?v=15" rel="stylesheet">
+    <link href="/mfm-landing/style.css?v=15" rel="stylesheet">
 
     <script async onload="initParticles()" src="/mfm-landing/utils/particles.min.js"></script>
     <script>
@@ -149,7 +149,7 @@
                         <p>Price for minting a block</p>
                     </div>
                     <script>
-                        fetch(location.origin + "/mfm-token/token?domain=vavilon", {
+                        fetch(location.origin + "/mfm-token/profile?domain=vavilon", {
                             method: "GET",
                         }).then(response => {
                             return response.json();
