@@ -55,7 +55,7 @@
         </div>
         <ng-include ng-show="accounts && accounts.length > 0"
                     src="'/mfm-wallet/wallet/accounts.html?v=15'"></ng-include>
-        <ng-include ng-show="trans && trans.length > 0"
+        <ng-include ng-show="trans && trans.length > 0" class="mh0"
                     src="'/mfm-wallet/wallet/trans.html?v=15'"></ng-include>
         <ng-include ng-hide="search_text.length < 2 || search_text.length >= 64"
                     src="'/mfm-wallet/search/tokens.html?v=15'"></ng-include>

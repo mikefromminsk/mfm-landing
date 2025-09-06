@@ -38,7 +38,7 @@ function start($scope) {
     }
 
     $scope.openTran = function (tran) {
-        console.log(tran)
+        $scope.copy(tran)
     }
 
     function loadTran(hash) {
