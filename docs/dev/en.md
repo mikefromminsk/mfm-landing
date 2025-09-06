@@ -24,7 +24,7 @@ Translations should be located in the strings folder inside the window folder.
 
 **Connect the controller in the main index.html**
 ```html
-<script async onload="loaded()" src="/mfm-wallet/withdrawal/controller.js?v=15aasda"></script>
+<script async onload="loaded()" src="/mfm-wallet/withdrawal/controller.js?v=15"></script>
 ```
 
 **Add window opening to navigator.js**

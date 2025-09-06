@@ -24,7 +24,7 @@
 
 **Подключи контроллер в главный index.html**
 ```html
-<script async onload="loaded()" src="/mfm-wallet/withdrawal/controller.js?v=15aasda"></script>
+<script async onload="loaded()" src="/mfm-wallet/withdrawal/controller.js?v=15"></script>
 ```
 
 **Добавь в navigator.js отрытие окна**

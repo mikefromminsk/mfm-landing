@@ -54,11 +54,11 @@
                  ng-click="clear()"/>
         </div>
         <ng-include ng-show="accounts && accounts.length > 0"
-                    src="'/mfm-wallet/wallet/accounts.html?v=15aasda'"></ng-include>
+                    src="'/mfm-wallet/wallet/accounts.html?v=15'"></ng-include>
         <ng-include ng-show="trans && trans.length > 0"
-                    src="'/mfm-wallet/wallet/trans.html?v=15aasda'"></ng-include>
+                    src="'/mfm-wallet/wallet/trans.html?v=15'"></ng-include>
         <ng-include ng-hide="search_text.length < 2 || search_text.length >= 64"
-                    src="'/mfm-wallet/search/tokens.html?v=15aasda'"></ng-include>
+                    src="'/mfm-wallet/search/tokens.html?v=15'"></ng-include>
         <div class="col back-gray radius-default" ng-show="token">
             <div class="row align-start-center p16 gap16 ripple"
                  ng-click="show_token_profile = !show_token_profile">
@@ -69,10 +69,10 @@
                 <img class="img18 img-white" src="/mfm-wallet/img/arrow-down.svg" ng-hide="show_token_profile">
             </div>
             <ng-include class="" ng-show="show_token_profile"
-                        src="'/mfm-wallet/profile/analytics.html?v=15aasda'"></ng-include>
+                        src="'/mfm-wallet/profile/analytics.html?v=15'"></ng-include>
         </div>
         <ng-include ng-show="tran"
-                    class="back-gray radius-default" src="'/mfm-wallet/tran/tran.html?v=15aasda'"></ng-include>
+                    class="back-gray radius-default" src="'/mfm-wallet/tran/tran.html?v=15'"></ng-include>
     </div>
 </div>
 

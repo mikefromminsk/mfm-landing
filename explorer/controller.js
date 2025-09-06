@@ -1,12 +1,18 @@
 function start($scope) {
     addScopeUtils($scope)
 
+    function clear() {
+        $scope.accounts = null
+        $scope.tran = null
+        $scope.trans = null
+    }
+
     $scope.multiSearch = function () {
         if ($scope.search_text.length == 64) {
-            $scope.trans = null
+            clear()
             loadTran($scope.search_text)
         } else if ($scope.search_text.startsWith('V')) {
-            $scope.tran = null
+            clear()
             loadTrans()
             loadAccounts()
         }
