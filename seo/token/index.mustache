@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{token.domain}} Token Profile | YourSite</title>
+  <meta name="description" content="Detailed profile for {{token.domain}} token including price, analytics and blockchain data">
+<!--  <link rel="canonical" href="https://yoursite.com/token/{{token.domain}}" />-->
+  <meta property="og:image" content="/storage/{{token.domain}}.png">
+  <meta property="twitter:image" content="/storage/{{token.domain}}.png">
+  <style>
+    :root {
+      --primary: #6c5ce7;
+      --secondary: #a29bfe;
+      --positive: #00b894;
+      --negative: #d63031;
+      --text: #2d3436;
+      --light-bg: #f5f6fa;
+      --card-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .token-info {
+      flex: 1;
+    }
+
+    .token-title {
+      font-size: 2.5rem;
+      margin: 0;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .token-meta {
+      color: #666;
+      font-size: 1.1rem;
+    }
+
+    .token-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 25px;
+      margin: 40px 0;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .stat-card h3 {
+      margin-top: 0;
+      color: #666;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .stat-card .value {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin: 15px 0;
+      color: var(--primary);
+    }
+
+    .stat-card .change {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .positive {
+      color: var(--positive);
+    }
+
+    .negative {
+      color: var(--negative);
+    }
+
+    .section {
+      margin-bottom: 50px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+      color: var(--text);
+    }
+
+    .account-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .account-card {
+      flex: 1;
+      min-width: 300px;
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .account-card h3 {
+      color: var(--primary);
+      margin-top: 0;
+      font-size: 1.4rem;
+    }
+
+    .account-card p {
+      margin: 10px 0;
+      font-size: 1.1rem;
+    }
+
+    .account-card strong {
+      color: var(--text);
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .token-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-card .value {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="token-info">
+      <h1 class="token-title">{{token.domain}}</h1>
+      <p class="token-meta">Token created: {{#token.created}}{{token.created}}{{/token.created}}{{^token.created}}Unknown{{/token.created}}</p>
+    </div>
+  </div>
+
+  <div class="token-stats">
+    <div class="stat-card">
+      <h3>Total Supply</h3>
+      <div class="value">{{#token.supply}}{{token.supply}}{{/token.supply}}{{^token.supply}}0{{/token.supply}}</div>
+    </div>
+
+    <div class="stat-card">
+      <h3>Current Price</h3>
+      <div class="value">{{#token.price}}{{token.price}}{{/token.price}}{{^token.price}}0{{/token.price}}</div>
+    </div>
+
+    <div class="stat-card">
+      <h3>24h Price Change</h3>
+      <div class="value">{{#token.price24}}{{token.price24}}{{/token.price24}}{{^token.price24}}0{{/token.price24}}</div>
+      <div class="change {{#token.price24}}{{#positive}}positive{{/positive}}{{^positive}}negative{{/positive}}{{/token.price24}}">
+        {{#token.price24}}{{token.price24}}%{{/token.price24}}{{^token.price24}}0%{{/token.price24}}
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <h3>24h Volume</h3>
+      <div class="value">{{#token.volume24}}{{token.volume24}}{{/token.volume24}}{{^token.volume24}}0{{/token.volume24}}</div>
+    </div>
+
+    <div class="stat-card">
+      <h3>Network Difficulty</h3>
+      <div class="value">{{#token.difficulty}}{{token.difficulty}}{{/token.difficulty}}{{^token.difficulty}}0{{/token.difficulty}}</div>
+    </div>
+  </div>
+
+  {{#account}}
+  <div class="section">
+    <h2 class="section-title">Account Information</h2>
+    <div class="account-info">
+      <div class="account-card">
+        <h3>Main Account</h3>
+        <p><strong>Address:</strong> {{address}}</p>
+        <p><strong>Balance:</strong> {{balance}}</p>
+      </div>
+    </div>
+  </div>
+  {{/account}}
+
+  {{#owner}}
+  <div class="section">
+    <h2 class="section-title">Owner Information</h2>
+    <div class="account-info">
+      <div class="account-card">
+        <h3>Genesis Account</h3>
+        <p><strong>Address:</strong> {{address}}</p>
+        <p><strong>Balance:</strong> {{balance}}</p>
+      </div>
+    </div>
+  </div>
+  {{/owner}}
+
+  {{#mining}}
+  <div class="section">
+    <h2 class="section-title">Mining Information</h2>
+    <div class="account-info">
+      <div class="account-card">
+        <h3>Mining Account</h3>
+        <p><strong>Address:</strong> {{address}}</p>
+        <p><strong>Balance:</strong> {{balance}}</p>
+      </div>
+    </div>
+  </div>
+  {{/mining}}
+
+  {{#gas_account}}
+  <div class="section">
+    <h2 class="section-title">Gas Account</h2>
+    <div class="account-info">
+      <div class="account-card">
+        <h3>Gas Account</h3>
+        <p><strong>Address:</strong> {{address}}</p>
+        <p><strong>Balance:</strong> {{balance}}</p>
+      </div>
+    </div>
+  </div>
+  {{/gas_account}}
+
+  <div class="section">
+    <h2 class="section-title">Network Analytics</h2>
+    <div class="token-stats">
+      <div class="stat-card">
+        <h3>Transactions (24h)</h3>
+        <div class="value">{{#analytics.trans}}{{analytics.trans}}{{/analytics.trans}}{{^analytics.trans}}0{{/analytics.trans}}</div>
+        <div class="change {{#analytics.trans7d}}{{#positive}}positive{{/positive}}{{^positive}}negative{{/positive}}{{/analytics.trans7d}}">
+          7d change: {{#analytics.trans7d}}{{analytics.trans7d}}%{{/analytics.trans7d}}{{^analytics.trans7d}}0%{{/analytics.trans7d}}
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <h3>Active Accounts (24h)</h3>
+        <div class="value">{{#analytics.accounts}}{{analytics.accounts}}{{/analytics.accounts}}{{^analytics.accounts}}0{{/analytics.accounts}}</div>
+        <div class="change {{#analytics.accounts7d}}{{#positive}}positive{{/positive}}{{^positive}}negative{{/positive}}{{/analytics.accounts7d}}">
+          7d change: {{#analytics.accounts7d}}{{analytics.accounts7d}}%{{/analytics.accounts7d}}{{^analytics.accounts7d}}0%{{/analytics.accounts7d}}
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <h3>Total Transactions</h3>
+        <div class="value">{{#analytics.trans_count}}{{analytics.trans_count}}{{/analytics.trans_count}}{{^analytics.trans_count}}0{{/analytics.trans_count}}</div>
+      </div>
+
+      <div class="stat-card">
+        <h3>Total Accounts</h3>
+        <div class="value">{{#analytics.accounts_count}}{{analytics.accounts_count}}{{/analytics.accounts_count}}{{^analytics.accounts_count}}0{{/analytics.accounts_count}}</div>
+      </div>
+
+      <div class="stat-card">
+        <h3>Total Tokens</h3>
+        <div class="value">{{#analytics.tokens_count}}{{analytics.tokens_count}}{{/analytics.tokens_count}}{{^analytics.tokens_count}}0{{/analytics.tokens_count}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+<script setup lang="ts">
+</script>
