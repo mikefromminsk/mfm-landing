@@ -59,6 +59,3 @@ The bot verifies subscription to the official channel (which tracks real user co
 
 **The Babylon Network** is a real-world proof of concept: a fee-free, secure, scalable cryptocurrency ecosystem ready for mass adoption.
 
----
-
-Хочешь, я ещё сделаю **короткую версию** для лендинга / Telegram-поста (буквально в несколько абзацев, без деталей)?
