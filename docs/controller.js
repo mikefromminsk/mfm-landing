@@ -6,11 +6,6 @@ function getLanguage() {
     return acceptedLangs.includes(lang) ? lang : 'en'
 }
 
-function getDocParam() {
-    const urlParams = new URLSearchParams(window.location.search);
-    return '/mfm-landing/docs/' + urlParams.get('doc') + '/' + getLanguage() + '.md'
-}
-
 async function fetchMarkdown(url) {
     const response = await fetch(url);
     const text = await response.text();
@@ -44,7 +39,7 @@ function smoothScroll(anchor) {
 }
 
 async function renderMarkdown() {
-    const markdownFile = getDocParam();
+    const markdownFile = new URLSearchParams(location.search).get("doc");
     const markdownContent = await fetchMarkdown(markdownFile);
     const converter = new showdown.Converter();
     const htmlContent = converter.makeHtml(generateAnchors(markdownContent));
@@ -143,7 +138,6 @@ function highlightCurrentDocument() {
 }
 
 document.addEventListener('DOMContentLoaded', highlightCurrentDocument);
-
 
 document.querySelectorAll('.language-menu a').forEach(link => {
     link.addEventListener('click', function(event) {

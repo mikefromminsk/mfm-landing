@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Change document</title>
+  <link rel="icon" href="/mfm-landing/logo.png">
+
+  <link href="/prismjs/themes/prism-okaidia.css" rel="stylesheet"/>
+  <script src="/prismjs/prism.js"></script>
+  <script src="/prismjs/components/prism-{{prismLang}}.min.js"></script>
+  <link href="/prismjs/plugins/line-numbers/prism-line-numbers.css" rel="stylesheet"/>
+  <script src="/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/diff2html/bundles/css/diff2html.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/diff@5.1.0/dist/diff.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/diff2html/bundles/js/diff2html.min.js"></script>
+
+  <link href="/mfm-wallet/style.css" rel="stylesheet">
+  <link href="/mfm-wallet/style_async.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <link href="/mfm-shorts/shorts.css" rel="stylesheet">
+  <link href="/mfm-wallet/colors.css" rel="stylesheet">
+
+  <script src="/mfm-wallet/utils/storage.js"></script>
+  <script>
+    async function sendProposal() {
+      const response = await fetch("/mfm-docs/proposal", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          originalFile: "{{originalFile}}",
+          proposalData: document.getElementById("originalData").innerText,
+          user: storage.getString(storageKeys.address) || Math.random().toString(36).substring(2, 2 + 6/*length*/)
+        })
+      })
+      if (response.ok) {
+        alert("Изменения успешно предложены!")
+        location.reload()
+      } else {
+        alert("Ошибка при отправке")
+      }
+    }
+
+    function showDiff(id, newText) {
+      if (newText.length == 0) return;
+      document.getElementById(id).innerHTML = Diff2Html.html(Diff.createTwoFilesPatch(
+          "original",
+          "edited",
+          document.getElementById("originalData").innerText,
+          newText,
+          "",
+          ""
+      ), {
+        drawFileList: false,
+        matching: "lines",
+        outputFormat: "line-by-line",
+        colorScheme: 'dark'
+      })
+    }
+
+    async function approveProposal(proposalFile) {
+      const response = await fetch("/mfm-docs/approve", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({proposalFile})
+      })
+      if (response.ok) {
+        location.reload()
+      } else {
+        alert("Ошибка при approveProposal")
+      }
+    }
+  </script>
+
+</head>
+<body class="fill col">
+<div class="flex row">
+  <div class="col sidebar mob-hide nowrap">
+    <div class="row header">
+      <img class="img32" src="/mfm-wallet/logo.png">
+      <h2 class="ml16 m0">Vavilon Docs</h2>
+    </div>
+    <div class="flex col scroll">
+      <a href="?doc=api.md">Api</a>
+      <a href="?doc=dev.md">For Developers</a>
+      <a href="?doc=whitepaper.md">White Paper</a>
+      <a href="?doc=roadmap.md">Roadmap</a>
+      <a href="?doc=terms.md">Terms and Conditions</a>
+      <a href="?doc=bugbounty.md">Bug Bounty Program</a>
+    </div>
+  </div>
+  <div class="flex col">
+    <div class="flex scroll col">
+      <pre class="line-numbers">
+        <code id="originalData" class="language-{{prismLang}}" contenteditable="true">{{&originalData}}</code>
+      </pre>
+      <div class="divider"></div>
+
+      <div class="primary-button" onclick="sendProposal()">
+        Предложить изменения
+      </div>
+
+
+      {{#proposals}}
+      <div class="col border-gray p16 m16">
+        <div class="row">
+          <p>Автор: {{user}}</p>
+        </div>
+        <div id="diff_{{id}}" class="diffContainer nowrap-disabled" style="max-width:100%; overflow-x:auto"></div>
+        <pre id="data_{{id}}" style="display:none">{{&proposalData}}</pre>
+        {{#outdated}}
+        <div class="row">
+          <div class="flex"></div>
+          <p>Outdated</p>
+        </div>
+        {{/outdated}}
+        {{^outdated}}
+        <div class="row">
+          <div class="flex"></div>
+          <button onclick="approveProposal('{{proposalFile}}')">Применить</button>
+        </div>
+        {{/outdated}}
+      </div>
+      {{/proposals}}
+      {{#proposals}}
+      <script>
+        showDiff('diff_{{id}}', document.getElementById("data_{{id}}").innerText)
+      </script>
+      {{/proposals}}
+    </div>
+  </div>
+</div>
+
+<script src="../controller.js"></script>
+<script setup lang="ts">
+</script>

@@ -57,5 +57,5 @@ The main user tool is the **Babylon Telegram bot** with an integrated wallet. Th
 
 The bot verifies subscription to the official channel (which tracks real user counts), provides access to the web interface, and helps newcomers quickly get started with crypto.
 
-**The Babylon Network** is a real-world proof of concept: a fee-free, secure, scalable cryptocurrency ecosystem ready for mass adoption.
+**The Babylon Network** is a real-world proof of concept: a fee-free, secure, scalable cryptocurrency ec ready for mass adoption.123123
 

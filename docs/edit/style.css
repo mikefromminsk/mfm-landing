@@ -1,0 +1,92 @@
+pre.line-numbers {
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    overflow-x: auto;
+}
+
+pre.line-numbers code {
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    display: block;
+}
+
+pre[contenteditable],
+code[contenteditable],
+pre:focus,
+code:focus {
+    outline: none;
+    border: none;
+}
+
+pre[class*="language-"] {
+    overflow: visible !important;   /* убираем внутренний скролл */
+    white-space: pre-wrap !important;  /* перенос строк */
+    word-break: break-word !important; /* перенос слов */
+}
+
+
+
+
+
+/* Контейнер Diff2Html */
+.diffContainer {
+    overflow-x: auto; /* скролл только при крайней необходимости */
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Таблицы внутри Diff2Html */
+.diffContainer table {
+    width: 100% !important;
+    table-layout: auto !important;
+}
+
+/* Преобразование pre для переноса текста */
+.diffContainer pre {
+    white-space: pre-wrap !important; /* перенос строк */
+    word-wrap: break-word;
+    overflow-wrap: anywhere; /* перенос очень длинных слов/URL */
+    margin: 0;
+}
+
+/* Сброс глобальных стилей, которые ломают Diff2Html */
+.diffContainer,
+.diffContainer * {
+    white-space: normal !important;
+    max-width: 100% !important;
+}
+
+/* Для адаптивности на мобильных */
+@media (max-width: 600px) {
+    .diffContainer .d2h-code-side {
+        width: 100% !important; /* колонки одна под другой на маленьких экранах */
+    }
+}
+
+.d2h-code-line {
+    padding: 0;
+    width: 100%;
+}
+
+.d2h-file-name-wrapper {
+    display: none;
+}
+
+
+
+
+/* Скрыть все номера строк */
+.diffContainer .d2h-code-linenumber {
+    display: none !important;
+}
+
+/* Чтобы код занимал всю ширину без отступа */
+.diffContainer .d2h-code-side {
+    padding-left: 0 !important;
+}
+
+
+
+
+
+

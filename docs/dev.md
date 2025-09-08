@@ -23,7 +23,9 @@ The windows with all actions of this window should be located inside the folder 
 Translations should be located in the strings folder inside the window folder.
 
 **Connect the controller in the main index.html**
+
 ```html
+
 <script async onload="loaded()" src="/mfm-wallet/withdrawal/controller.js?v=15"></script>
 ```
 
