@@ -21,7 +21,7 @@ function start($scope) {
     function loadTrans() {
         post("mfm-token/trans", {
             address: $scope.search_text,
-            size: 100,
+            size: 100
         }, function (response) {
             $scope.trans = $scope.groupByTimePeriod(response.trans)
             $scope.$apply()
@@ -30,7 +30,7 @@ function start($scope) {
 
     function loadAccounts() {
         post("mfm-token/accounts", {
-            address: $scope.search_text,
+            address: $scope.search_text
         }, function (response){
             $scope.accounts = response.accounts
             $scope.$apply()
@@ -43,7 +43,7 @@ function start($scope) {
 
     function loadTran(hash) {
         post("mfm-token/tran", {
-            next_hash: hash,
+            next_hash: hash
         }, function (response){
             $scope.tran = response.tran
             loadTokenProfile(response.tran.domain)
