@@ -1,0 +1,238 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="/mfm-landing/logo.png">
+  <meta name="description"
+        content="Vavilon Network — инновационная блокчейн-сеть с бесплатными транзакциями и доходом от майнинга для валидаторов.">
+  <meta name="keywords"
+        content="Vavilon Network, блокчейн, бесплатные транзакции, майнинг, валидаторы, PoS, масштабируемость, безопасность">
+  <title>Vavilon - Бесплатный Блокчейн</title>
+  <meta property="og:image" content="/mfm-landing/img/big_logo.png">
+  <meta property="twitter:image" content="/mfm-landing/img/big_logo.png">
+
+  <link href="/mfm-shorts/shorts.css?v=15" rel="stylesheet">
+  <link href="/mfm-wallet/colors.css?v=15" rel="stylesheet">
+  <link href="/mfm-wallet/style.css?v=15" rel="stylesheet">
+  <link href="/mfm-landing/style.css?v=15" rel="stylesheet">
+
+  <script async onload="initParticles()" src="/mfm-landing/utils/particles.min.js"></script>
+  <script>
+    function initParticles() {
+      particlesJS.load('particles-js', '/mfm-landing/particles.json');
+      window.addEventListener('scroll', () => {
+        const header = document.querySelector('.scroll-blur');
+        if (window.scrollY > 100) {
+          header.classList.add('back-blur');
+        } else {
+          header.classList.remove('back-blur');
+        }
+      });
+    }
+  </script>
+</head>
+<body class="col" style="overflow-x: hidden; position: relative">
+<div style="display: block; position: absolute; max-width: 100%; height: 100%">
+  <div id="particles-js"></div>
+</div>
+<div class="row align-start-center p8 bold scroll-blur" style="position: fixed;  width: 100%; z-index: 2;">
+  <div class="flex row align-center-center">
+    <div class="block row align-start-center gap16 pv0 ph16">
+      <img class="img40" src="/mfm-wallet/logo.png">
+      <p class="mob-show">VAVILON</p>
+      <div class="mob-hide row align-start-center">
+        <a class="nav-menu" href="https://t.me/vavilon_org_bot">
+          <button class="nav-menu-button">Кошелёк</button>
+        </a>
+        <a class="nav-menu" href="/mfm-landing/docs/?doc=whitepaper.md">
+          <button class="nav-menu-button">Документы</button>
+        </a>
+        <a class="nav-menu" href="/mfm-landing/explorer">
+          <button class="nav-menu-button">Обозреватель</button>
+        </a>
+      </div>
+      <div class="flex"></div>
+      <div class="col mob-show">
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="burger-menu">
+          <div></div>
+          <div></div>
+          <div></div>
+        </label>
+        <div class="menu">
+          <a href="https://t.me/vavilon_org_bot">Кошелёк</a>
+          <a href="/mfm-landing/docs/?doc=dev.md">Для разработчиков</a>
+          <a href="/mfm-landing/docs/?doc=roadmap.md">Дорожная карта</a>
+          <a href="/mfm-landing/explorer">Обозреватель</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="fill col align-start-center" style="position: relative; overflow: hidden;">
+  <div class="fill col block pv0">
+    <div class="fill row align-start-center">
+      <div style="z-index: -1;">
+        <img src="/mfm-landing/img/Gradient%20BG.svg"
+             loading="lazy" class="hhero_bg-gradient">
+        <img src="/mfm-landing/img/Frame%20427321323.svg"
+             loading="lazy" class="hhero_dot-pattern">
+        <img src="/mfm-landing/img/Group%20427320220%20(1).svg"
+             loading="lazy" class="hhero_bg-graphic1">
+      </div>
+      <div class="flex col half-block gap8">
+        <a href="/mfm-wallet">
+          <h1>Vavilon</h1>
+        </a>
+        <p>Бесплатный блокчейн</p>
+        <p>без ограничений скорости</p>
+        <div class="row" style="margin-top: 40px">
+          <a class="primary-button" href="https://t.me/vavilon_org_bot">Демо кошелька</a>
+        </div>
+      </div>
+      <div class="flex col half-block mob-hide">
+        <img src="/mfm-landing/img/Illus.svg"
+             loading="lazy" class="hhero_bg-graphic2">
+        <img src="/mfm-landing/img/vavilon512.png"
+             loading="lazy" class="hhero_bg-graphic2 enter-delayed">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col align-start-center">
+  <div class="col block">
+    <h2>БЕСПЛАТНЫЕ транзакции</h2>
+    <div class="row gap32 mob-col">
+      <div class="flex col half-block">
+        <p>Все токены выпускаются через майнинг. <br>
+          Это положительно влияет на цену токена и борьбу с мошенниками.
+          Цена за добычу одного блока основана на количестве записей в распределённой базе данных.
+          <br>Одна запись в базе стоит $0.0001. Для нахождения блока нужно 3 записи.</p>
+        <div class="row" style="margin-top: 40px">
+          <a class="primary-button" href="/mfm-landing/docs/?doc=api.md">Для разработчиков</a>
+        </div>
+      </div>
+      <div class="flex col align-start half-block uppercase">
+        <div class="col">
+          <h1 style="color: #f087ff">{{trans_count}}</h1>
+          <p>Бесплатные транзакции</p>
+        </div>
+        <div class="col mt16">
+          <h1 style="color: #1fcff1">{{accounts_count}}</h1>
+          <p>Аккаунты</p>
+        </div>
+        <div class="col mt16">
+          <h1 class="text-gradient-3">$0.0003</h1>
+          <p>Цена за выпуск блока</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col align-start-center">
+  <div class="col block">
+    <h2>Дорожная карта 2025</h2>
+    <div class="row gap32 mob-col">
+      <div class="flex col half-block">
+        <p><b>Q3 Альфа-релиз</b></p>
+        <ul>
+          <li>Выпуск альфа-версии блокчейн-платформы</li>
+          <li>Внутреннее тестирование и сбор отзывов</li>
+          <li>Продолжение расширения партнёрств</li>
+        </ul>
+      </div>
+      <div class="flex col half-block">
+        <p><b>Q4 Бета-релиз</b></p>
+        <ul>
+          <li>Запуск бета-версии платформы для публичного тестирования</li>
+          <li>Внедрение обратной связи по итогам альфа-тестирования</li>
+          <li>Подготовка к запуску основной сети</li>
+        </ul>
+        <div class="row" style="margin-top: 40px">
+          <a class="primary-button" href="/mfm-landing/docs/?doc=roadmap.md">Что дальше</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col align-start-center">
+  <div class="col block">
+    <h2>Контакты</h2>
+    <div class="row gap32 mob-col" style="margin-top: 24px">
+      <div class="flex col align-start-center p16 border-white-opacity half-block"
+           style="padding-bottom: 40px">
+        <div class="row user-wrapper mb16">
+          <img class="user" src="/mfm-landing/img/founder.png">
+        </div>
+        <p>Майк Хайдук</p>
+        <p class="text2">Основатель</p>
+        <p class="text2">Технический специалист</p>
+        <div class="row gap8 mt16">
+          <a class="back-white radius-default img32 p8 hover-accent"
+             href="https://t.me/mikefromminsk">
+            <img class="img16" src="/mfm-wallet/img/telegram.svg">
+          </a>
+          <a class="back-white radius-default img32 p8 hover-accent"
+             href="https://www.instagram.com/mikefromminsk">
+            <img class="img16" src="/mfm-wallet/img/instagram.svg">
+          </a>
+          <a class="back-white radius-default img32 p8 hover-accent"
+             href="https://linkedin.com/in/mike-haiduk-081375b5">
+            <img class="img16" src="/mfm-wallet/img/linkedin.svg">
+          </a>
+          <a class="back-white radius-default img32 p8 hover-accent"
+             href="https://github.com/mikefromminsk/">
+            <img class="img16" src="/mfm-wallet/img/git.svg">
+          </a>
+        </div>
+      </div>
+      <div class="flex col align-start-center p16 border-white-opacity half-block"
+           style="padding-bottom: 40px">
+        <div class="row user-wrapper mb16">
+          <img class="user" src="/mfm-landing/img/co-founder.png">
+        </div>
+        <p>Ольга Токарева</p>
+        <p class="text2">Сооснователь</p>
+        <p class="text2">Маркетолог</p>
+        <div class="row gap8 mt16">
+          <a class="back-white radius-default img32 p8 hover-accent"
+             href="https://t.me/olga_bbm">
+            <img class="img16" src="/mfm-wallet/img/telegram.svg">
+          </a>
+          <a class="back-white radius-default img32 p8 hover-accent"
+             href="https://www.instagram.com/olya.dalmatian/">
+            <img class="img16" src="/mfm-wallet/img/instagram.svg">
+          </a>
+          <a class="back-white radius-default img32 p8 hover-accent"
+             href="https://www.linkedin.com/in/olgatokareva8/">
+            <img class="img16" src="/mfm-wallet/img/linkedin.svg">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col align-start-center hover-text-accent" style="background: black">
+  <div class="col block" style="padding: 80px 2em; ">
+    <div class="row mob-col gap32">
+      <div class="flex col gap16 wrap">
+        <p><b>Языки</b></p>
+        <a href="/?lang=en">English</a>
+        <a href="/?lang=ru">Русский</a>
+      </div>
+      <div class="flex col gap16 wrap">
+        <p><b>Документы</b></p>
+        <a href="/mfm-landing/docs/?doc=roadmap.md">Дорожная карта</a>
+      </div>
+      <div class="flex col gap16 wrap">
+        <p><b>Приложения</b></p>
+        <a href="/mfm-wallet">Кошелёк</a>
+        <a href="/mfm-landing/explorer">Обозреватель</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
