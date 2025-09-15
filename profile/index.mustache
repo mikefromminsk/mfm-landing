@@ -26,7 +26,10 @@
 </div>
 <div class="flex col scroll align-start-center">
   <div class="flex col block">
+
     <div class="input-content">
+      <div id="chart"
+           style="width: 100%; min-height: 270px; max-height: 270px; margin: 0"></div>
       <div class="row">
         <a class="flex p16 col align-start-center ripple" href="/mfm-wallet/#openExchange={{domain}}">
           <img class="img16 img-gray" src="/mfm-wallet/img/exchange.svg">
@@ -72,34 +75,38 @@
     </div>
 
     {{#profile.token}}
-    <div class="input-content">
-      <p class="text1">Tokenomics</p>
-      <div class="row">
-        <p class="flex text2">Total supply</p>
-        <p>{{supply}}</p>
+    <div class="row input-content">
+      <div class="flex col">
+        <p class="text1">Tokenomics</p>
+        <div class="row">
+          <p class="flex text2">Total supply</p>
+          <p>{{supply}}</p>
+        </div>
+        <div class="row">
+          <p class="flex text2">Capitalization</p>
+          <p>{{capitalization}}</p>
+        </div>
+        <div class="row">
+          <p class="flex text2">Circulation supply</p>
+          <p>{{price * profile.supply.balance}}</p>
+        </div>
+        <!--      {{#showDifficulty}}
+              <div class="row">
+                <p class="text2">Mining difficulty</p>
+                <img class="ml4 img12 img-gray" src="/mfm-wallet/img/chart.svg">
+                <div class="flex"></div>
+                <p>{{difficulty}}</p>
+              </div>
+              {{/showDifficulty}}-->
+        <div class="row">
+          <p class="flex text2">Created</p>
+          <p>{{created}}</p>
+        </div>
       </div>
-      <div class="row">
-        <p class="flex text2">Capitalization</p>
-        <p>{{capitalization}}</p>
-      </div>
-      <div class="row">
-        <p class="flex text2">Circulation supply</p>
-        <p>{{price * profile.supply.balance}}</p>
-      </div>
-<!--      {{#showDifficulty}}
-      <div class="row">
-        <p class="text2">Mining difficulty</p>
-        <img class="ml4 img12 img-gray" src="/mfm-wallet/img/chart.svg">
-        <div class="flex"></div>
-        <p>{{difficulty}}</p>
-      </div>
-      {{/showDifficulty}}-->
-      <div class="row">
-        <p class="flex text2">Created</p>
-        <p>{{created}}</p>
-      </div>
+
       {{/profile.token}}
       {{#profile.analytics}}
+      <div class="flex col">
       <div class="row">
         <p class="flex text1">Activity</p>
         <p class="text2">All / Week</p>
@@ -122,6 +129,9 @@
         <div class="flex"></div>
         <p>{{trans}}</p>
       </div>
+      </div>
+
+      <div class="flex col">
       <div class="row">
         <p class="flex text1">Network</p>
         <p class="text2">All / Week</p>
@@ -144,6 +154,7 @@
         <div class="flex"></div>
         <p>{{trans_count}}</p>
       </div>
+      </div>
     </div>
     {{/profile.analytics}}
 
@@ -164,7 +175,7 @@
       <p class="text1 mh16 mt8">Recommended</p>
       <div class="row scroll-horizontal ph8">
         {{#recs.recommended}}
-        <a class="text1 mh8 pv16" href="/mfm-wallet/#openProfile={{domain}}">
+        <a class="text1 mh8 pv16" href="/mfm-landing/profile?domain={{domain}}">
           <img class="img64 row align-center-center radius-default back-gray"
                src="/storage/{{domain}}">
           <p class="mt8 text2 text-gray text-crop text-align-center" style="max-width: 64px;">
@@ -176,5 +187,16 @@
     </div>
   </div>
 </div>
+
+<script src="/mfm-wallet/utils/lightweight-charts.standalone.production.js"></script>
+<script src="/mfm-wallet/base/storage"></script>
+<script src="/mfm-wallet/base/wallet.js"></script>
+<script src="/mfm-wallet/profile/chart/controller.js"></script>
+<script>
+  let chart = {}
+  addChart(chart, "exchange", "{{domain}}_price", "{{domain}}_volume")
+</script>
 </body>
 </html>
+<script setup lang="ts">
+</script>
