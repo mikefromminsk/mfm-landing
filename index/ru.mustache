@@ -5,11 +5,19 @@
   <meta name="theme-color" content="#000000">
   <link rel="icon" href="/mfm-landing/logo.png">
   <meta name="description"
-        content="Vavilon Network — инновационная блокчейн-сеть с бесплатными транзакциями и доходом от майнинга для валидаторов.">
+        content="Vavilon Network - инновационная блокчейн-сеть с бесплатными транзакциями и доходом от майнинга для валидаторов.">
   <meta name="keywords"
-        content="Vavilon Network, блокчейн, бесплатные транзакции, майнинг, валидаторы, PoS, масштабируемость, безопасность">
+        content="Vavilon Network, blockchain, free transactions, mining, validators, PoS, scalability, security">
   <title>Vavilon - Бесплатный Блокчейн</title>
+  <!--<meta property="og:title" content="Заголовок вашей страницы">
+  <meta property="og:description" content="Краткое и engaging описание содержимого страницы">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://вашсайт.ru/url-этой-страницы">-->
   <meta property="og:image" content="/mfm-landing/img/big_logo.png">
+  <!--<meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://vavilon.org/">
+  <meta property="twitter:title" content="Vavilon - Бесплатный Блокчейн">
+  <meta property="twitter:description" content="Инновационная блокчейн-сеть с бесплатными транзакциями...">-->
   <meta property="twitter:image" content="/mfm-landing/img/big_logo.png">
 
   <link href="/mfm-shorts/shorts.css?v=15" rel="stylesheet">
@@ -85,10 +93,10 @@
         <a href="/mfm-wallet">
           <h1>Vavilon</h1>
         </a>
-        <p>Бесплатный блокчейн</p>
+        <p>Бесплатный Блокчейн</p>
         <p>без ограничений скорости</p>
         <div class="row" style="margin-top: 40px">
-          <a class="primary-button" href="https://t.me/vavilon_org_bot">Демо кошелька</a>
+          <a class="primary-button" href="https://t.me/vavilon_org_bot">Демонстрация кошелька</a>
         </div>
       </div>
       <div class="flex col half-block mob-hide">
@@ -106,9 +114,9 @@
     <div class="row gap32 mob-col">
       <div class="flex col half-block">
         <p>Все токены выпускаются через майнинг. <br>
-          Это положительно влияет на цену токена и борьбу с мошенниками.
-          Цена за добычу одного блока основана на количестве записей в распределённой базе данных.
-          <br>Одна запись в базе стоит $0.0001. Для нахождения блока нужно 3 записи.</p>
+          Это оказывает положительное влияние на цену токена и борьбу с мошенниками.
+          Цена за майнинг одного блока основана на количестве записей в распределённой базе данных.
+          <br>Одна запись базы стоит $0.0001. И для каждого найденного блока требуется 3 записи.</p>
         <div class="row" style="margin-top: 40px">
           <a class="primary-button" href="/mfm-landing/docs/?doc=api.md">Для разработчиков</a>
         </div>
@@ -116,7 +124,7 @@
       <div class="flex col align-start half-block uppercase">
         <div class="col">
           <h1 style="color: #f087ff">{{trans_count}}</h1>
-          <p>Бесплатные транзакции</p>
+          <p>БЕСПЛАТНЫЕ транзакции</p>
         </div>
         <div class="col mt16">
           <h1 style="color: #1fcff1">{{accounts_count}}</h1>
@@ -124,10 +132,22 @@
         </div>
         <div class="col mt16">
           <h1 class="text-gradient-3">$0.0003</h1>
-          <p>Цена за выпуск блока</p>
+          <p>Цена за майнинг блока</p>
         </div>
       </div>
     </div>
+  </div>
+</div>
+<div class="col align-start-center">
+  <div class="col block">
+    <h2>Топ токенов</h2>
+    {{#top_mining}}
+    <a class="row align-start-center" href="/mfm-landing/profile?domain={{domain}}">
+      <img class="img32" src="/storage/{{domain}}.png">
+      <p class="flex ml8 uppercase">{{domain}}</p>
+      <p>${{price}}</p>
+    </a>
+    {{/top_mining}}
   </div>
 </div>
 <div class="col align-start-center">
@@ -137,7 +157,7 @@
       <div class="flex col half-block">
         <p><b>Q3 Альфа-релиз</b></p>
         <ul>
-          <li>Выпуск альфа-версии блокчейн-платформы</li>
+          <li>Выход альфа-версии платформы блокчейн</li>
           <li>Внутреннее тестирование и сбор отзывов</li>
           <li>Продолжение расширения партнёрств</li>
         </ul>
@@ -146,8 +166,8 @@
         <p><b>Q4 Бета-релиз</b></p>
         <ul>
           <li>Запуск бета-версии платформы для публичного тестирования</li>
-          <li>Внедрение обратной связи по итогам альфа-тестирования</li>
-          <li>Подготовка к запуску основной сети</li>
+          <li>Внедрение отзывов из альфа-тестирования</li>
+          <li>Подготовка к запуску mainnet</li>
         </ul>
         <div class="row" style="margin-top: 40px">
           <a class="primary-button" href="/mfm-landing/docs/?doc=roadmap.md">Что дальше</a>
@@ -165,7 +185,7 @@
         <div class="row user-wrapper mb16">
           <img class="user" src="/mfm-landing/img/founder.png">
         </div>
-        <p>Майк Хайдук</p>
+        <p>Mike Haiduk</p>
         <p class="text2">Основатель</p>
         <p class="text2">Технический специалист</p>
         <div class="row gap8 mt16">
@@ -192,9 +212,9 @@
         <div class="row user-wrapper mb16">
           <img class="user" src="/mfm-landing/img/co-founder.png">
         </div>
-        <p>Ольга Токарева</p>
-        <p class="text2">Сооснователь</p>
-        <p class="text2">Маркетолог</p>
+        <p>Olga Tokareva</p>
+        <p class="text2">Со‑основатель</p>
+        <p class="text2">Маркетинговый специалист</p>
         <div class="row gap8 mt16">
           <a class="back-white radius-default img32 p8 hover-accent"
              href="https://t.me/olga_bbm">
@@ -224,6 +244,7 @@
       </div>
       <div class="flex col gap16 wrap">
         <p><b>Документы</b></p>
+        <!--<a href="/mfm-landing/docs/?doc=api.md">Api</a>-->
         <a href="/mfm-landing/docs/?doc=roadmap.md">Дорожная карта</a>
       </div>
       <div class="flex col gap16 wrap">
@@ -236,3 +257,5 @@
 </div>
 </body>
 </html>
+<script setup lang="ts">
+</script>
