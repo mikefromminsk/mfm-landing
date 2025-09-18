@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -8,16 +9,9 @@
         content="Vavilon Network - an innovative blockchain network with free transactions and mining income for validators.">
   <meta name="keywords"
         content="Vavilon Network, blockchain, free transactions, mining, validators, PoS, scalability, security">
-  <title>Vavilon - Free Blockchain</title>
-  <!--<meta property="og:title" content="Заголовок вашей страницы">
-  <meta property="og:description" content="Краткое и engaging описание содержимого страницы">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://вашсайт.ru/url-этой-страницы">-->
+  <title>Vavilon – Free Blockchain</title>
+
   <meta property="og:image" content="/mfm-landing/img/big_logo.png">
-  <!--<meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://vavilon.org/">
-  <meta property="twitter:title" content="Vavilon - Бесплатный Блокчейн">
-  <meta property="twitter:description" content="Инновационная блокчейн-сеть с бесплатными транзакциями...">-->
   <meta property="twitter:image" content="/mfm-landing/img/big_logo.png">
 
   <link href="/mfm-shorts/shorts.css?v=15" rel="stylesheet">
@@ -47,13 +41,13 @@
 <div class="row align-start-center p8 bold scroll-blur" style="position: fixed;  width: 100%; z-index: 2;">
   <div class="flex row align-center-center">
     <div class="block row align-start-center gap16 pv0 ph16">
-      <img class="img40" src="/mfm-wallet/logo.png">
+      <img class="img40" src="/mfm-wallet/logo.png" alt="Vavilon logo">
       <p class="mob-show">VAVILON</p>
       <div class="mob-hide row align-start-center">
         <a class="nav-menu" href="https://t.me/vavilon_org_bot">
           <button class="nav-menu-button">Wallet</button>
         </a>
-        <a class="nav-menu" href="/mfm-landing/docs/?doc=whitepaper.md">
+        <a class="nav-menu" href="/mfm-landing/docs/whitepaper">
           <button class="nav-menu-button">Documents</button>
         </a>
         <a class="nav-menu" href="/mfm-landing/explorer">
@@ -70,8 +64,8 @@
         </label>
         <div class="menu">
           <a href="https://t.me/vavilon_org_bot">Wallet</a>
-          <a href="/mfm-landing/docs/?doc=dev.md">For Developers</a>
-          <a href="/mfm-landing/docs/?doc=roadmap.md">Roadmap</a>
+          <a href="/mfm-landing/docs/dev">For Developers</a>
+          <a href="/mfm-landing/docs/roadmap">Roadmap</a>
           <a href="/mfm-landing/explorer">Explorer</a>
         </div>
       </div>
@@ -83,15 +77,15 @@
     <div class="fill row align-start-center">
       <div style="z-index: -1;">
         <img src="/mfm-landing/img/Gradient%20BG.svg"
-             loading="lazy" class="hhero_bg-gradient">
+             loading="lazy" class="hhero_bg-gradient" alt="Background gradient">
         <img src="/mfm-landing/img/Frame%20427321323.svg"
-             loading="lazy" class="hhero_dot-pattern">
+             loading="lazy" class="hhero_dot-pattern" alt="Dot pattern">
         <img src="/mfm-landing/img/Group%20427320220%20(1).svg"
-             loading="lazy" class="hhero_bg-graphic1">
+             loading="lazy" class="hhero_bg-graphic1" alt="Graphic element">
       </div>
       <div class="flex col half-block gap8">
         <a href="/mfm-wallet">
-          <h1>Vavilon</h1>
+          <h1>Vavilon – Free Blockchain with Zero Fees</h1>
         </a>
         <p>Free Blockchain</p>
         <p>without speed limits</p>
@@ -101,9 +95,9 @@
       </div>
       <div class="flex col half-block mob-hide">
         <img src="/mfm-landing/img/Illus.svg"
-             loading="lazy" class="hhero_bg-graphic2">
+             loading="lazy" class="hhero_bg-graphic2" alt="Blockchain illustration">
         <img src="/mfm-landing/img/vavilon512.png"
-             loading="lazy" class="hhero_bg-graphic2 enter-delayed">
+             loading="lazy" class="hhero_bg-graphic2 enter-delayed" alt="Vavilon symbol">
       </div>
     </div>
   </div>
@@ -118,20 +112,20 @@
           The price for mining one block is based on the number of entries in the distributed database.
           <br>One database entry costs $0.0001. And for each block found, 3 entries are needed.</p>
         <div class="row" style="margin-top: 40px">
-          <a class="primary-button" href="/mfm-landing/docs/?doc=api.md">For developers</a>
+          <a class="primary-button" href="/mfm-landing/docs/api">For developers</a>
         </div>
       </div>
       <div class="flex col align-start half-block uppercase">
         <div class="col">
-          <h1 style="color: #f087ff">{{trans_count}}</h1>
+          <h2 style="color: #f087ff">{{trans_count}}</h2>
           <p>Free transactions</p>
         </div>
         <div class="col mt16">
-          <h1 style="color: #1fcff1">{{accounts_count}}</h1>
+          <h2 style="color: #1fcff1">{{accounts_count}}</h2>
           <p>Accounts</p>
         </div>
         <div class="col mt16">
-          <h1 class="text-gradient-3">$0.0003</h1>
+          <h2 class="text-gradient-3">$0.0003</h2>
           <p>Price for minting a block</p>
         </div>
       </div>
@@ -142,8 +136,8 @@
   <div class="col block">
     <h2>Top tokens</h2>
     {{#top_mining}}
-    <a class="row align-start-center" href="/mfm-landing/profile?domain={{domain}}">
-      <img class="img32" src="/storage/{{domain}}.png">
+    <a class="row align-start-center" href="/mfm-landing/profile/{{domain}}">
+      <img class="img32" src="/storage/{{domain}}.png" alt="{{domain}} token logo">
       <p class="flex ml8 uppercase">{{domain}}</p>
       <p>${{price}}</p>
     </a>
@@ -155,7 +149,7 @@
     <h2>Roadmap 2025</h2>
     <div class="row gap32 mob-col">
       <div class="flex col half-block">
-        <p><b>Q3 Alpha Release</b></p>
+        <h3>Q3 Alpha Release</h3>
         <ul>
           <li>Release of the alpha version of the blockchain platform</li>
           <li>Internal testing and feedback collection</li>
@@ -163,14 +157,14 @@
         </ul>
       </div>
       <div class="flex col half-block">
-        <p><b>Q4 Beta Release</b></p>
+        <h3>Q4 Beta Release</h3>
         <ul>
           <li>Launch of the beta version of the platform for public testing</li>
           <li>Implementation of feedback from alpha testing</li>
           <li>Preparation for the mainnet launch</li>
         </ul>
         <div class="row" style="margin-top: 40px">
-          <a class="primary-button" href="/mfm-landing/docs/?doc=roadmap.md">What`s next</a>
+          <a class="primary-button" href="/mfm-landing/docs/roadmap">What`s next</a>
         </div>
       </div>
     </div>
@@ -183,7 +177,7 @@
       <div class="flex col align-start-center p16 border-white-opacity half-block"
            style="padding-bottom: 40px">
         <div class="row user-wrapper mb16">
-          <img class="user" src="/mfm-landing/img/founder.png">
+          <img class="user" src="/mfm-landing/img/founder.png" alt="Founder photo">
         </div>
         <p>Mike Haiduk</p>
         <p class="text2">Founder</p>
@@ -191,26 +185,26 @@
         <div class="row gap8 mt16">
           <a class="back-white radius-default img32 p8 hover-accent"
              href="https://t.me/mikefromminsk">
-            <img class="img16" src="/mfm-wallet/img/telegram.svg">
+            <img class="img16" src="/mfm-wallet/img/telegram.svg" alt="Telegram">
           </a>
           <a class="back-white radius-default img32 p8 hover-accent"
              href="https://www.instagram.com/mikefromminsk">
-            <img class="img16" src="/mfm-wallet/img/instagram.svg">
+            <img class="img16" src="/mfm-wallet/img/instagram.svg" alt="Instagram">
           </a>
           <a class="back-white radius-default img32 p8 hover-accent"
              href="https://linkedin.com/in/mike-haiduk-081375b5">
-            <img class="img16" src="/mfm-wallet/img/linkedin.svg">
+            <img class="img16" src="/mfm-wallet/img/linkedin.svg" alt="LinkedIn">
           </a>
           <a class="back-white radius-default img32 p8 hover-accent"
              href="https://github.com/mikefromminsk/">
-            <img class="img16" src="/mfm-wallet/img/git.svg">
+            <img class="img16" src="/mfm-wallet/img/git.svg" alt="GitHub">
           </a>
         </div>
       </div>
       <div class="flex col align-start-center p16 border-white-opacity half-block"
            style="padding-bottom: 40px">
         <div class="row user-wrapper mb16">
-          <img class="user" src="/mfm-landing/img/co-founder.png">
+          <img class="user" src="/mfm-landing/img/co-founder.png" alt="Co-founder photo">
         </div>
         <p>Olga Tokareva</p>
         <p class="text2">Co-Founder</p>
@@ -218,15 +212,15 @@
         <div class="row gap8 mt16">
           <a class="back-white radius-default img32 p8 hover-accent"
              href="https://t.me/olga_bbm">
-            <img class="img16" src="/mfm-wallet/img/telegram.svg">
+            <img class="img16" src="/mfm-wallet/img/telegram.svg" alt="Telegram">
           </a>
           <a class="back-white radius-default img32 p8 hover-accent"
              href="https://www.instagram.com/olya.dalmatian/">
-            <img class="img16" src="/mfm-wallet/img/instagram.svg">
+            <img class="img16" src="/mfm-wallet/img/instagram.svg" alt="Instagram">
           </a>
           <a class="back-white radius-default img32 p8 hover-accent"
              href="https://www.linkedin.com/in/olgatokareva8/">
-            <img class="img16" src="/mfm-wallet/img/linkedin.svg">
+            <img class="img16" src="/mfm-wallet/img/linkedin.svg" alt="LinkedIn">
           </a>
         </div>
       </div>
@@ -244,8 +238,7 @@
       </div>
       <div class="flex col gap16 wrap">
         <p><b>Documents</b></p>
-        <!--<a href="/mfm-landing/docs/?doc=api.md">Api</a>-->
-        <a href="/mfm-landing/docs/?doc=roadmap.md">Roadmap</a>
+        <a href="/mfm-landing/docs/roadmap">Roadmap</a>
       </div>
       <div class="flex col gap16 wrap">
         <p><b>Applications</b></p>
@@ -257,5 +250,3 @@
 </div>
 </body>
 </html>
-<script setup lang="ts">
-</script>
