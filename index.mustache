@@ -35,8 +35,13 @@
   </script>
 </head>
 <body class="col" style="overflow-x: hidden; position: relative">
-<div style="display: block; position: absolute; max-width: 100%; height: 100%">
-  <div id="particles-js"></div>
+<div id="particles-js" style="
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;">
 </div>
 <div class="row align-start-center p8 bold scroll-blur" style="position: fixed;  width: 100%; z-index: 2;">
   <div class="flex row align-center-center">
@@ -85,10 +90,9 @@
       </div>
       <div class="flex col half-block gap8">
         <a href="/mfm-wallet">
-          <h1>Vavilon – Free Blockchain with Zero Fees</h1>
+          <h1>Vavilon</h1>
         </a>
-        <p>Free Blockchain</p>
-        <p>without speed limits</p>
+        <p>Blockchain with Zero Fees</p>
         <div class="row" style="margin-top: 40px">
           <a class="primary-button" href="https://t.me/vavilon_org_bot">Wallet Demo</a>
         </div>
@@ -107,12 +111,10 @@
     <h2>FREE transactions</h2>
     <div class="row gap32 mob-col">
       <div class="flex col half-block">
-        <p>All tokens are released through mining. <br>
-          This has a positive effect on the token price and the fight against scammers.
-          The price for mining one block is based on the number of entries in the distributed database.
-          <br>One database entry costs $0.0001. And for each block found, 3 entries are needed.</p>
+        <p>Miners support the network by paying fees to release new tokens. <br>
+          All transactions remain free for users.</p>
         <div class="row" style="margin-top: 40px">
-          <a class="primary-button" href="/mfm-landing/docs/api">For developers</a>
+          <a class="primary-button" href="/mfm-landing/docs/whitepaper">Whitepaper</a>
         </div>
       </div>
       <div class="flex col align-start half-block uppercase">
@@ -133,13 +135,15 @@
   </div>
 </div>
 <div class="col align-start-center">
-  <div class="col block">
+  <div class="col block nowrap">
     <h2>Top tokens</h2>
     {{#top_mining}}
-    <a class="row align-start-center" href="/mfm-landing/profile/{{domain}}">
+    <a class="row align-start-center p16" href="/mfm-landing/profile?domain={{domain}}">
       <img class="img32" src="/storage/{{domain}}.png" alt="{{domain}} token logo">
       <p class="flex ml8 uppercase">{{domain}}</p>
-      <p>${{price}}</p>
+      <p class="ml16 mob-hide">{{formattedDifficulty}}</p>
+      <p class="ml16 mob-hide">{{formattedPrice24}}</p>
+      <p class="ml16">{{formattedPrice}}</p>
     </a>
     {{/top_mining}}
   </div>
@@ -229,7 +233,7 @@
 </div>
 
 <div class="col align-start-center hover-text-accent" style="background: black">
-  <div class="col block" style="padding: 80px 2em; ">
+  <div class="col block" style="padding: 80px 2em;">
     <div class="row mob-col gap32">
       <div class="flex col gap16 wrap">
         <p><b>Languages</b></p>
@@ -247,6 +251,9 @@
       </div>
     </div>
   </div>
+  <div class="row align-center-center p16">2025</div>
 </div>
 </body>
 </html>
+<script setup lang="ts">
+</script>

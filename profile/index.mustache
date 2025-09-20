@@ -35,12 +35,12 @@
           <img class="img16 img-gray" src="/mfm-wallet/img/exchange.svg">
           <p class="mt8 text2">Swap</p>
         </a>
-        {{#profile.token.isDepositToken}}
+        {{#profile.token.isWrappedToken}}
         <a class="flex p16 col align-start-center ripple" href="/mfm-wallet/#openDeposit={{domain}}">
           <img class="img16 img-gray" src="/mfm-wallet/img/plus.svg">
           <p class="mt8 text2">Deposit</p>
         </a>
-        {{/profile.token.isDepositToken}}
+        {{/profile.token.isWrappedToken}}
         {{#profile.token.isMiningToken}}
         <a class="flex p16 col align-start-center ripple" href="/mfm-wallet/#openMiner={{domain}}">
           <img class="img16 img-gray" src="/mfm-wallet/img/mining.svg">
