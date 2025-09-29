@@ -1,6 +1,6 @@
 # VAVILON TERMS OF SERVICE
 
-**Last Updated: August 21, 2023**
+**Last Updated: September 29, 2025**
 
 ## 1. Preamble
 
@@ -38,12 +38,13 @@ Within the context of this Agreement, the following terms shall have the meaning
 
 You agree not to use the Service to engage in any illegal activities or the following types of activities, which we deem inappropriate and/or prohibited:
 
-5.1. Violating any applicable local, national, or international laws or regulations.
-5.2. Engaging in money laundering, terrorist financing, fraud, or other unlawful activities.
-5.3. Using the Service to conduct transactions involving items subject to sanctions lists.
-5.4. Distributing malware, spam, phishing, or any attempts to compromise the security of the Service.
-5.5. Using any means to interfere or attempt to interfere with the proper functioning of the Service.
-5.6. Any actions that may damage, disrupt, or place an undue burden on the Service's infrastructure.
+5.1. Violating any applicable local, national, or international laws or regulations.  
+5.2. Engaging in money laundering, terrorist financing, fraud, or other unlawful activities.  
+5.3. Using the Service to conduct transactions involving items subject to sanctions lists.  
+5.4. Distributing malware, spam, phishing, or any attempts to compromise the security of the Service.  
+5.5. Using any means to interfere or attempt to interfere with the proper functioning of the Service.  
+5.6. Any actions that may damage, disrupt, or place an undue burden on the Service's infrastructure.  
+5.7. Any attempt to modify, alter, manipulate, or otherwise change data on the Service without explicit authorization, which shall be considered hacking and unauthorized access.
 
 ## 6. Intellectual Property
 
